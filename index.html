@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Immobile Protetto • Gestione completa e tutela per case sfitte</title>
+  <meta name="description" content="Gestione completa della tua casa sfitta: inquilini selezionati (dipendenti pubblici), tutela, assicurazione danni e ripristino. Richiedi informazioni." />
+
+  <!-- Font professionale -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="brand-name">Immobile Protetto</div>
+          <div class="brand-sub">Provincia di Pescara • Abruzzo</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#come">Come funziona</a>
+        <a href="#vantaggi">Vantaggi</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-small" href="#contatto">Contatto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="wrap hero">
+      <div class="hero-left">
+        <div class="pill">Per proprietari con immobili sfitti</div>
+
+        <h1>
+          Trasforma la tua casa sfitta in un immobile
+          <span class="accent">curato e protetto</span>, senza pensieri.
+        </h1>
+
+        <p class="sub">
+          Selezioniamo inquilini affidabili (dipendenti pubblici fuori sede) e gestiamo tutto:
+          richieste, contratti, assistenza, tutela, assicurazione danni e ripristino.
+        </p>
+
+        <ul class="ticks">
+          <li><span class="tick-strong">Gestione completa</span>: richieste, contratti, check-in/out, assistenza</li>
+          <li><span class="tick-strong">Tutela reale</span>: inventario, verbali fotografici, deposito e procedure chiare</li>
+          <li><span class="tick-strong">Immobile seguito</span>: manutenzione ordinaria e ripristino quando necessario</li>
+          <li><span class="tick-strong">Impatto positivo</span>: alloggi accessibili per chi lavora nei servizi essenziali</li>
+        </ul>
+
+        <div class="cta-row">
+          <a class="btn" href="#contatto">Richiedi informazioni</a>
+          <a class="btn btn-ghost" href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+        </div>
+
+        <p class="micro">
+          Valutazione iniziale gratuita. Ti diciamo subito se il tuo immobile è idoneo.
+        </p>
+
+        <!-- VIDEO (opzionale, non invasivo) -->
+        <details class="video">
+          <summary>Guarda il video (60 secondi)</summary>
+          <div class="video-box">
+            <iframe
+              src="[INSERISCI_URL_EMBED_VIDEO]"
+              title="Video presentazione"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <p class="tiny">
+            Suggerimento: 45–75 secondi, diretto. Problema → soluzione → come iniziare.
+          </p>
+        </details>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="hero-card" id="contatto">
+        <h2>Verifica idoneità in 2 minuti</h2>
+        <p class="small">Lascia i dettagli: ti ricontattiamo entro 24/48h per capire se possiamo aiutarti.</p>
+
+        <form id="leadForm" action="https://formspree.io/f/xjggypap" method="POST">
+          <!-- honeypot anti-spam -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+
+          <div class="grid">
+            <label>Nome e Cognome
+              <input name="name" autocomplete="name" required />
+            </label>
+
+            <label>Comune
+              <input name="city" placeholder="Es. Pescara" required />
+            </label>
+
+            <label>Email
+              <input type="email" name="email" autocomplete="email" placeholder="nome@email.it" required />
+            </label>
+
+            <label>Telefono / WhatsApp (opzionale)
+              <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+39 ..." />
+            </label>
+
+            <label>Tipologia immobile
+              <select name="type" required>
+                <option value="">Seleziona…</option>
+                <option>Monolocale</option>
+                <option>Bilocale</option>
+                <option>Trilocale</option>
+                <option>Stanza in appartamento</option>
+              </select>
+            </label>
+
+            <label>Arredato?
+              <select name="furnished" required>
+                <option value="">Seleziona…</option>
+                <option>Sì</option>
+                <option>No</option>
+                <option>Parzialmente</option>
+              </select>
+            </label>
+
+            <label>Disponibilità
+              <select name="availability" required>
+                <option value="">Seleziona…</option>
+                <option>Subito</option>
+                <option>Entro 30 giorni</option>
+                <option>Entro 60 giorni</option>
+                <option>Oltre 60 giorni</option>
+              </select>
+            </label>
+
+            <label>Stato immobile (indicativo)
+              <select name="condition" required>
+                <option value="">Seleziona…</option>
+                <option>Ottimo / pronto</option>
+                <option>Buono / piccoli interventi</option>
+                <option>Da rivedere</option>
+              </select>
+            </label>
+          </div>
+
+          <label>Note (opzionale)
+            <textarea name="notes" rows="3" placeholder="Es. zona, ascensore, posto auto, arredi, ecc."></textarea>
+          </label>
+
+          <label class="consent">
+            <input type="checkbox" required />
+            Acconsento a essere ricontattata e dichiaro di aver letto l’informativa privacy.
+          </label>
+
+          <button class="btn btn-full" type="submit">Invia richiesta</button>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+
+          <div class="trust">
+            <div class="trust-item">
+              <span class="dot"></span>
+              <span>Inquilini selezionati (dipendenti pubblici)</span>
+            </div>
+            <div class="trust-item">
+              <span class="dot"></span>
+              <span>Inventario e verbali fotografici</span>
+            </div>
+            <div class="trust-item">
+              <span class="dot"></span>
+              <span>Gestione e ripristino operativi</span>
+            </div>
+          </div>
+
+          <p class="tiny">
+            Preferisci fissare tu? <a href="[INSERISCI_LINK_CALENDARIO]" rel="noopener">Prenota una call</a> •
+            <a href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CHI CERCHIAMO -->
+    <section class="wrap section">
+      <div class="split">
+        <div class="card">
+          <h3>Che immobili cerchiamo</h3>
+          <p class="muted">
+            Preferiamo immobili in buono stato, arredati o facilmente arredabili, in zone ben collegate.
+          </p>
+          <ul class="bullets">
+            <li>Monolocali, bilocali, trilocali e stanze (valutiamo caso per caso)</li>
+            <li>Zone vicine a ospedali, scuole, stazioni, servizi essenziali</li>
+            <li>Documentazione base disponibile (se presente: APE e planimetrie)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>A chi diamo casa</h3>
+          <p class="muted">
+            Selezioniamo persone con esigenze lavorative verificabili, per ridurre rischi e imprevisti.
+          </p>
+          <ul class="bullets">
+            <li>Insegnanti, personale sanitario, forze dell’ordine e altri dipendenti pubblici</li>
+            <li>Preferenza a permanenze medio-lunghe (meno turnover)</li>
+            <li>Regole chiare su utilizzo e cura dell’immobile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COME FUNZIONA -->
+    <section id="come" class="wrap section">
+      <h2>Come funziona</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>Valutazione e call</h3>
+          <p>Raccogliamo i dettagli dell’immobile e definiamo obiettivi, tempi e perimetro di gestione.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>Gestione e tutela</h3>
+          <p>Impostiamo inventario e verbali, regole operative e un processo chiaro di assistenza e ripristino.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>Selezione e avvio</h3>
+          <p>Selezioniamo l’inquilino, avviamo il rapporto e seguiamo l’immobile nel tempo.</p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <span class="notice-strong">Nota:</span>
+        la parte tecnica (autorizzazioni e contratti) è gestita con documenti standardizzati.
+        In call te la spieghiamo in modo semplice e trasparente.
+      </div>
+    </section>
+
+    <!-- VANTAGGI -->
+    <section id="vantaggi" class="wrap section">
+      <h2>Perché conviene al proprietario</h2>
+
+      <div class="grid4">
+        <div class="card">
+          <h3>Immobile protetto</h3>
+          <p class="muted">Procedure chiare, inventario e verbali: riduciamo rischi e contestazioni.</p>
+        </div>
+        <div class="card">
+          <h3>Immobile curato</h3>
+          <p class="muted">Manutenzione ordinaria e ripristino: la casa resta in ordine nel tempo.</p>
+        </div>
+        <div class="card">
+          <h3>Zero gestione</h3>
+          <p class="muted">Ci occupiamo di richieste, check-in/out, assistenza e attività operative.</p>
+        </div>
+        <div class="card">
+          <h3>Impatto positivo</h3>
+          <p class="muted">Contribuisci ad alloggi accessibili per servizi essenziali, con regole chiare.</p>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <div class="cta-band-text">
+          <h3>Vuoi capire se la tua casa è idonea?</h3>
+          <p class="muted">Ti diciamo subito sì/no e perché, senza perdite di tempo.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a class="btn" href="#contatto">Richiedi contatto</a>
+          <a class="btn btn-ghost" href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="wrap section">
+      <h2>Domande frequenti</h2>
+
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Quali sono i costi iniziali per il proprietario?</summary>
+          <p>La prima valutazione e la call sono gratuite. In seguito definiamo insieme perimetro di gestione e tutela.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Come funziona la gestione dal punto di vista contrattuale?</summary>
+          <p>Operiamo con un impianto contrattuale trasparente e documenti standardizzati. In call te lo spieghiamo in modo semplice.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Utenze e spese condominiali chi le paga?</summary>
+          <p>In genere le utenze sono a carico dell’inquilino; le spese condominiali vengono disciplinate nel contratto. Possiamo valutare anche una formula all-inclusive.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Cosa succede in caso di danni o problemi?</summary>
+          <p>Usiamo inventario, verbali fotografici, deposito e procedure di ripristino. L’obiettivo è mantenere l’immobile in buono stato.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Preferite permanenze lunghe?</summary>
+          <p>Preferiamo permanenze medio-lunghe per ridurre turnover. Valutiamo comunque caso per caso in base al profilo lavorativo.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="wrap footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Immobile Protetto</div>
+          <div class="tiny">Provincia di Pescara • Abruzzo</div>
+        </div>
+        <div class="tiny footer-links">
+          <a href="[LINK_PRIVACY]">Privacy</a>
+          <span class="sep">•</span>
+          <a href="mailto:[TUA_EMAIL]">[TUA_EMAIL]</a>
+          <span class="sep">•</span>
+          <a href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <p class="tiny">© 2026 – Tutti i diritti riservati</p>
+    </footer>
+  </main>
+
+  <!-- Formspree AJAX -->
+  <script>
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+
+    if (form && statusEl && submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        statusEl.className = 'form-status';
+        statusEl.textContent = 'Invio in corso…';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.reset();
+            statusEl.classList.add('ok');
+            statusEl.textContent = 'Richiesta inviata. Ti contattiamo entro 24/48h.';
+          } else {
+            const data = await res.json().catch(() => ({}));
+            statusEl.classList.add('err');
+            statusEl.textContent = data?.errors?.[0]?.message
+              ? `Errore: ${data.errors[0].message}`
+              : 'Errore nell’invio. Riprova o contattaci su WhatsApp.';
+          }
+        } catch (err) {
+          statusEl.classList.add('err');
+          statusEl.textContent = 'Connessione non riuscita. Riprova tra poco o contattaci su WhatsApp.';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
