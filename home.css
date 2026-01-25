@@ -11,7 +11,7 @@
   --primary: #0f766e;
   --primary-dark: #064e3b;
 
-  /* Hero overlay: alza/abbassa per rendere il video â€œquasi invisibileâ€ */
+  /* Hero overlay: alza/abbassa per rendere il video “quasi invisibile” */
   --hero-overlay: 0.58;
 }
 
@@ -356,7 +356,7 @@ h2{
   background: rgba(255,255,255,0.6);
 }
 
-/* Footer (dentro al 4Â° blocco) */
+/* Footer (dentro al 4° blocco) */
 .footer{
   margin-top: 20px;
   padding-top: 16px;
@@ -459,7 +459,7 @@ textarea{ resize: vertical; }
 .modal-foot{ margin-top: 10px; }
 .hp{ display:none !important; }
 
-/* Reduced motion: niente video se lâ€™utente lo chiede */
+/* Reduced motion: niente video se l’utente lo chiede */
 @media (prefers-reduced-motion: reduce){
   .hero-video{ display:none; }
   .scroll-hint i{ animation:none; }

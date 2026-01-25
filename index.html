@@ -29,7 +29,7 @@
         <a href="#cose">Che cos’è</a>
         <a href="#cosa">Cosa facciamo</a>
         <a href="#perche">Perché registrare</a>
-        <button class="btn btn-small" type="button" data-open-modal="registerModal">Registra</button>
+        <a class="btn btn-small" href="#contatto">Registra</a>
       </nav>
 
       <button class="burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
@@ -42,12 +42,12 @@
       <a href="#cose">Che cos’è</a>
       <a href="#cosa">Cosa facciamo</a>
       <a href="#perche">Perché registrare</a>
-      <button class="btn btn-full" type="button" data-open-modal="registerModal">Registra qui il tuo immobile</button>
+      <a class="btn btn-full" href="#contatto">Registra qui il tuo immobile</a>
     </div>
   </header>
 
   <main class="snap">
-    <!-- PRIMO BLOCCO -->
+    <!-- 1) HERO -->
     <section id="home" class="panel hero">
       <video
         id="bgVideo"
@@ -76,7 +76,7 @@
         </p>
 
         <div class="actions">
-          <button class="btn" type="button" data-open-modal="registerModal">Registra qui il tuo immobile</button>
+          <a class="btn" href="#contatto">Registra qui il tuo immobile</a>
           <a class="btn btn-ghost" href="#cose">Scopri come funziona</a>
         </div>
 
@@ -91,7 +91,7 @@
       </a>
     </section>
 
-    <!-- SECONDO BLOCCO -->
+    <!-- 2) CHE COS’È -->
     <section id="cose" class="panel">
       <div class="wrap content">
         <h2>Che cos’è Immobile Protetto?</h2>
@@ -130,10 +130,14 @@
             </div>
           </div>
         </div>
+
+        <div class="center-cta">
+          <a class="btn" href="#contatto">Registra il tuo immobile</a>
+        </div>
       </div>
     </section>
 
-    <!-- TERZO BLOCCO -->
+    <!-- 3) COSA FACCIAMO -->
     <section id="cosa" class="panel panel-soft">
       <div class="wrap content">
         <h2>Cosa facciamo?</h2>
@@ -168,12 +172,12 @@
         </div>
 
         <div class="center-cta">
-          <button class="btn" type="button" data-open-modal="registerModal">Registra il tuo immobile</button>
+          <a class="btn" href="#contatto">Registra il tuo immobile</a>
         </div>
       </div>
     </section>
 
-    <!-- QUARTO BLOCCO -->
+    <!-- 4) PERCHÉ REGISTRARE -->
     <section id="perche" class="panel">
       <div class="wrap content">
         <h2>Perché dovresti registrare il tuo immobile?</h2>
@@ -214,8 +218,8 @@
             <div class="cta-sub">Ti diciamo subito sì/no e perché, senza perdite di tempo.</div>
           </div>
           <div class="cta-actions">
-            <button class="btn" type="button" data-open-modal="registerModal">Registrala ora</button>
-            <a class="btn btn-ghost" href="/LandingPage/">Vedi la pagina completa</a>
+            <a class="btn" href="#contatto">Registrala ora</a>
+            <a class="btn btn-ghost-dark" href="old.html">Vedi la vecchia pagina</a>
           </div>
         </div>
 
@@ -234,124 +238,108 @@
         </footer>
       </div>
     </section>
+
+    <!-- 5) CONTATTO (FORM IN FONDO) -->
+    <section id="contatto" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>Registra il tuo immobile</h2>
+        <p class="muted">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</p>
+
+        <div class="form-card">
+          <form id="leadForm" class="form" action="https://formspree.io/f/xjggypap" method="POST">
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+
+            <div class="grid">
+              <label>Nome e Cognome
+                <input name="name" autocomplete="name" required />
+              </label>
+
+              <label>Comune
+                <input name="city" placeholder="Es. Pescara" required />
+              </label>
+
+              <label>Email
+                <input type="email" name="email" autocomplete="email" placeholder="nome@email.it" required />
+              </label>
+
+              <label>Telefono / WhatsApp (opzionale)
+                <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+39 ..." />
+              </label>
+
+              <label>Tipologia immobile
+                <select name="type" required>
+                  <option value="">Seleziona…</option>
+                  <option>Monolocale</option>
+                  <option>Bilocale</option>
+                  <option>Trilocale</option>
+                  <option>Stanza in appartamento</option>
+                </select>
+              </label>
+
+              <label>Arredato?
+                <select name="furnished" required>
+                  <option value="">Seleziona…</option>
+                  <option>Sì</option>
+                  <option>No</option>
+                  <option>Parzialmente</option>
+                </select>
+              </label>
+
+              <label>Disponibilità
+                <select name="availability" required>
+                  <option value="">Seleziona…</option>
+                  <option>Subito</option>
+                  <option>Entro 30 giorni</option>
+                  <option>Entro 60 giorni</option>
+                  <option>Oltre 60 giorni</option>
+                </select>
+              </label>
+
+              <label>Stato immobile (indicativo)
+                <select name="condition" required>
+                  <option value="">Seleziona…</option>
+                  <option>Ottimo / pronto</option>
+                  <option>Buono / piccoli interventi</option>
+                  <option>Da rivedere</option>
+                </select>
+              </label>
+            </div>
+
+            <label>Note (opzionale)
+              <textarea name="notes" rows="3" placeholder="Es. zona, ascensore, posto auto, arredi, ecc."></textarea>
+            </label>
+
+            <label class="consent">
+              <input type="checkbox" required />
+              Acconsento a essere ricontattata e dichiaro di aver letto l’informativa privacy.
+            </label>
+
+            <button class="btn btn-full" type="submit">Invia richiesta</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- MODAL: REGISTRA -->
-  <div class="modal" id="registerModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Registrazione immobile">
-    <div class="modal-backdrop" data-close-modal></div>
-
-    <div class="modal-card" role="document">
-      <div class="modal-head">
-        <div>
-          <div class="modal-title">Registra il tuo immobile</div>
-          <div class="modal-sub">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</div>
-        </div>
-        <button class="icon-btn" type="button" aria-label="Chiudi" data-close-modal>×</button>
-      </div>
-
-      <form id="leadForm" class="form" action="https://formspree.io/f/xjggypap" method="POST">
-        <!-- honeypot anti-spam -->
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
-
-        <div class="grid">
-          <label>Nome e Cognome
-            <input name="name" autocomplete="name" required />
-          </label>
-
-          <label>Comune
-            <input name="city" placeholder="Es. Pescara" required />
-          </label>
-
-          <label>Email
-            <input type="email" name="email" autocomplete="email" placeholder="nome@email.it" required />
-          </label>
-
-          <label>Telefono / WhatsApp (opzionale)
-            <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+39 ..." />
-          </label>
-
-          <label>Tipologia immobile
-            <select name="type" required>
-              <option value="">Seleziona…</option>
-              <option>Monolocale</option>
-              <option>Bilocale</option>
-              <option>Trilocale</option>
-              <option>Stanza in appartamento</option>
-            </select>
-          </label>
-
-          <label>Arredato?
-            <select name="furnished" required>
-              <option value="">Seleziona…</option>
-              <option>Sì</option>
-              <option>No</option>
-              <option>Parzialmente</option>
-            </select>
-          </label>
-
-          <label>Disponibilità
-            <select name="availability" required>
-              <option value="">Seleziona…</option>
-              <option>Subito</option>
-              <option>Entro 30 giorni</option>
-              <option>Entro 60 giorni</option>
-              <option>Oltre 60 giorni</option>
-            </select>
-          </label>
-
-          <label>Stato immobile (indicativo)
-            <select name="condition" required>
-              <option value="">Seleziona…</option>
-              <option>Ottimo / pronto</option>
-              <option>Buono / piccoli interventi</option>
-              <option>Da rivedere</option>
-            </select>
-          </label>
-        </div>
-
-        <label>Note (opzionale)
-          <textarea name="notes" rows="3" placeholder="Es. zona, ascensore, posto auto, arredi, ecc."></textarea>
-        </label>
-
-        <label class="consent">
-          <input type="checkbox" required />
-          Acconsento a essere ricontattata e dichiaro di aver letto l’informativa privacy.
-        </label>
-
-        <button class="btn btn-full" type="submit">Invia richiesta</button>
-        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-
-        <div class="modal-foot tiny">
-          Preferisci la pagina completa? <a href="/LandingPage/">Apri LandingPage</a>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <script>
-    // --- Video: rendilo "dolce" e non invasivo ---
+    // Video: più dolce (0.8x)
     const bgVideo = document.getElementById('bgVideo');
     if (bgVideo) {
-      const setRate = () => { bgVideo.playbackRate = 0.8; }; // 0.8x come richiesto
-      bgVideo.addEventListener('loadedmetadata', setRate, { once: true });
-      bgVideo.addEventListener('canplay', () => {
-        // alcuni browser richiedono play() esplicito anche se muted
-        bgVideo.play().catch(() => {});
-      });
-
-      // Risparmio risorse quando la tab non è visibile
+      bgVideo.addEventListener('loadedmetadata', () => { bgVideo.playbackRate = 0.8; }, { once: true });
+      bgVideo.play().catch(() => {});
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) bgVideo.pause();
         else bgVideo.play().catch(() => {});
       });
     }
 
-    // --- Burger menu mobile ---
+    // Burger menu
     const burger = document.querySelector('.burger');
     const mobileNav = document.getElementById('mobileNav');
     if (burger && mobileNav) {
       burger.addEventListener('click', () => {
-        const open = mobileNav.hasAttribute('hidden') === false;
+        const open = !mobileNav.hasAttribute('hidden');
         if (open) {
           mobileNav.setAttribute('hidden', '');
           burger.setAttribute('aria-expanded', 'false');
@@ -369,34 +357,15 @@
       });
     }
 
-    // --- Modal open/close (registrazione) ---
-    const modal = document.getElementById('registerModal');
-    const openers = document.querySelectorAll('[data-open-modal="registerModal"]');
-    const closers = modal ? modal.querySelectorAll('[data-close-modal]') : [];
-
-    function openModal() {
-      if (!modal) return;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      // focus sul primo input
-      const first = modal.querySelector('input[name="name"]');
-      first && first.focus();
+    // Topbar: trasparente su hero, solida dopo scroll
+    const topbar = document.querySelector('.topbar');
+    if (topbar) {
+      const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 10);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
 
-    function closeModal() {
-      if (!modal) return;
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-    }
-
-    openers.forEach(btn => btn.addEventListener('click', openModal));
-    closers.forEach(btn => btn.addEventListener('click', closeModal));
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal();
-    });
-
-    // --- Formspree AJAX + messaggi ---
+    // Formspree AJAX
     const form = document.getElementById('leadForm');
     const statusEl = document.getElementById('formStatus');
     const submitBtn = form?.querySelector('button[type="submit"]');
@@ -404,7 +373,6 @@
     if (form && statusEl && submitBtn) {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-
         statusEl.className = 'form-status';
         statusEl.textContent = 'Invio in corso…';
         submitBtn.disabled = true;
@@ -421,8 +389,6 @@
             form.reset();
             statusEl.classList.add('ok');
             statusEl.textContent = 'Richiesta inviata. Ti contattiamo entro 24/48h.';
-            // chiudi dopo un attimo
-            setTimeout(() => closeModal(), 900);
           } else {
             const data = await res.json().catch(() => ({}));
             statusEl.classList.add('err');
