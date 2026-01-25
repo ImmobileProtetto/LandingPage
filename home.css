@@ -11,7 +11,7 @@
   --primary-dark: #064e3b;
 
   /* overlay soft */
-  --hero-overlay: 0.12;
+  --hero-overlay: 0.08;
 }
 
 *{ box-sizing:border-box; }
@@ -376,3 +376,4 @@ textarea{ resize: vertical; }
 @media (max-width: 520px){
   .justify{ text-align: left; }
 }
+
