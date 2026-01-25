@@ -16,13 +16,7 @@
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#home" aria-label="Immobile Protetto - Home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">
-          <span class="brand-name">Immobile Protetto</span>
-          <span class="brand-sub">Provincia di Pescara • Abruzzo</span>
-        </span>
-      </a>
+      <!-- Brand RIMOSSO (niente quadratino verde + niente scritte) -->
 
       <nav class="nav">
         <a href="#cose">Che cos’è</a>
@@ -36,7 +30,7 @@
       </button>
     </div>
 
-    <!-- Mobile nav: DEVE stare nascosto finché non apri il burger -->
+    <!-- Mobile nav: nascosto finché non premi burger -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <a href="#cose">Che cos’è</a>
       <a href="#cosa">Cosa facciamo</a>
@@ -46,7 +40,7 @@
   </header>
 
   <main class="snap">
-    <!-- HERO -->
+    <!-- 1) HERO -->
     <section id="home" class="panel hero">
       <video
         id="bgVideo"
@@ -65,23 +59,18 @@
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="wrap hero-content">
-        <p class="pill">Per proprietari con immobili inutilizzati</p>
-
         <h1>Hai un immobile inutilizzato?</h1>
 
-        <p class="lead">
+        <p class="lead justify">
           Registralo gratuitamente su <strong>Immobile Protetto</strong> per valorizzarlo.
           Per te un servizio di <strong>tutela</strong> e un’<strong>assicurazione gratuita</strong>.
         </p>
 
+        <!-- ORDINE PULSANTI INVERTITO: prima "Scopri", poi "Registra" -->
         <div class="actions">
-          <a class="btn" href="#contatto">Registra qui il tuo immobile</a>
           <a class="btn btn-ghost" href="#cose">Scopri come funziona</a>
+          <a class="btn" href="#contatto">Registra qui il tuo immobile</a>
         </div>
-
-        <p class="micro">
-          Valutazione iniziale gratuita. Ti diciamo subito se l’immobile è idoneo.
-        </p>
       </div>
 
       <a class="scroll-hint" href="#cose" aria-label="Scorri alla sezione successiva">
@@ -90,16 +79,19 @@
       </a>
     </section>
 
-    <!-- 2 -->
+    <!-- 2) CHE COS’È -->
     <section id="cose" class="panel">
       <div class="wrap content">
         <h2>Che cos’è Immobile Protetto?</h2>
 
-        <p class="question">È la piattaforma che seleziona gli inquilini sulla base delle tue preferenze.</p>
+        <p class="question justify">
+          È la piattaforma che seleziona gli inquilini sulla base delle tue preferenze.
+        </p>
 
-        <p class="muted">
-          Non devi pensare a spese di custodia, di gestione e di manutenzione:
-          ti aiutiamo a tenere l’immobile <strong>curato</strong> e <strong>protetto</strong>, senza stress.
+        <!-- Tolto "senza stress." e sistemata la frase -->
+        <p class="muted justify">
+          Non devi pensare a spese di custodia, di gestione e di manutenzione.
+          Ti aiutiamo a tenere l’immobile <strong>curato</strong> e <strong>protetto</strong>.
         </p>
 
         <div class="mini-points">
@@ -134,35 +126,44 @@
       </div>
     </section>
 
-    <!-- 3 -->
+    <!-- 3) COSA FACCIAMO -->
     <section id="cosa" class="panel panel-soft">
       <div class="wrap content">
         <h2>Cosa facciamo?</h2>
 
-        <p class="question">Mettiamo in sicurezza il tuo immobile e ci occupiamo della gestione.</p>
+        <p class="question justify">
+          Mettiamo in sicurezza il tuo immobile e ci occupiamo della gestione.
+        </p>
 
-        <p class="muted">
+        <p class="muted justify">
           Gestione completa, selezione inquilini e burocrazia <strong>a costo zero</strong>.
           In più, ti forniamo un’<strong>assicurazione gratuita</strong> per mettere al sicuro il tuo immobile.
         </p>
 
+        <!-- NUMERI 1/2/3 A FIANCO DEL TESTO -->
         <div class="steps">
           <div class="step">
             <div class="step-n">1</div>
-            <h3>Valutazione rapida</h3>
-            <p>Raccogliamo i dettagli e capiamo subito se è idoneo.</p>
+            <div class="step-body">
+              <h3>Valutazione rapida</h3>
+              <p>Raccogliamo i dettagli e capiamo subito se è idoneo.</p>
+            </div>
           </div>
 
           <div class="step">
             <div class="step-n">2</div>
-            <h3>Tutela e regole</h3>
-            <p>Impostiamo un processo chiaro di gestione, assistenza e controllo.</p>
+            <div class="step-body">
+              <h3>Tutela e regole</h3>
+              <p>Impostiamo un processo chiaro di gestione, assistenza e controllo.</p>
+            </div>
           </div>
 
           <div class="step">
             <div class="step-n">3</div>
-            <h3>Selezione e avvio</h3>
-            <p>Selezioniamo l’inquilino in base alle preferenze e avviamo il rapporto.</p>
+            <div class="step-body">
+              <h3>Selezione e avvio</h3>
+              <p>Selezioniamo l’inquilino in base alle preferenze e avviamo il rapporto.</p>
+            </div>
           </div>
         </div>
 
@@ -172,7 +173,7 @@
       </div>
     </section>
 
-    <!-- 4 -->
+    <!-- 4) PERCHÉ REGISTRARE -->
     <section id="perche" class="panel">
       <div class="wrap content">
         <h2>Perché dovresti registrare il tuo immobile?</h2>
@@ -180,22 +181,22 @@
         <div class="cards">
           <div class="card">
             <h3>Hai il pieno controllo della tua proprietà</h3>
-            <p class="muted">Regole chiare, inventario e verbali: riduciamo rischi e contestazioni, con un processo trasparente.</p>
+            <p class="muted justify">Regole chiare, inventario e verbali: riduciamo rischi e contestazioni, con un processo trasparente.</p>
           </div>
 
           <div class="card">
             <h3>Immobile curato</h3>
-            <p class="muted">Manutenzione ordinaria e ripristino quando necessario: la casa resta in ordine nel tempo.</p>
+            <p class="muted justify">Manutenzione ordinaria e ripristino quando necessario: la casa resta in ordine nel tempo.</p>
           </div>
 
           <div class="card">
             <h3>Zero gestione</h3>
-            <p class="muted">Ci occupiamo di richieste, burocrazia, assistenza e attività operative.</p>
+            <p class="muted justify">Ci occupiamo di richieste, burocrazia, assistenza e attività operative.</p>
           </div>
 
           <div class="card">
             <h3>Impatto sociale positivo</h3>
-            <p class="muted">Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.</p>
+            <p class="muted justify">Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.</p>
           </div>
         </div>
 
@@ -208,28 +209,14 @@
             <a class="btn" href="#contatto">Registrala ora</a>
           </div>
         </div>
-
-        <footer class="footer">
-          <div class="footer-left">
-            <div class="footer-brand">Immobile Protetto</div>
-            <div class="tiny">Provincia di Pescara • Abruzzo</div>
-          </div>
-          <div class="footer-right tiny">
-            <a href="[LINK_PRIVACY]">Privacy</a>
-            <span class="sep">•</span>
-            <a href="mailto:[TUA_EMAIL]">[TUA_EMAIL]</a>
-            <span class="sep">•</span>
-            <a href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
-          </div>
-        </footer>
       </div>
     </section>
 
-    <!-- 5 CONTATTO -->
+    <!-- 5) CONTATTO -->
     <section id="contatto" class="panel panel-soft">
       <div class="wrap content">
         <h2>Registra il tuo immobile</h2>
-        <p class="muted">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</p>
+        <p class="muted justify">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</p>
 
         <div class="form-card">
           <form id="leadForm" class="form" action="https://formspree.io/f/xjggypap" method="POST">
@@ -306,6 +293,23 @@
         </div>
       </div>
     </section>
+
+    <!-- FOOTER IN FONDO (dopo il form) -->
+    <footer class="site-footer">
+      <div class="wrap footer">
+        <div class="footer-left">
+          <div class="footer-brand">Immobile Protetto</div>
+          <div class="tiny">Provincia di Pescara • Abruzzo</div>
+        </div>
+        <div class="footer-right tiny">
+          <a href="[LINK_PRIVACY]">Privacy</a>
+          <span class="sep">•</span>
+          <a href="mailto:[TUA_EMAIL]">[TUA_EMAIL]</a>
+          <span class="sep">•</span>
+          <a href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
@@ -338,7 +342,6 @@
       mobileNav.hidden = true;
       burger.setAttribute('aria-expanded', 'false');
     }
-
     function openMobileNav() {
       if (!mobileNav || !burger) return;
       mobileNav.hidden = false;
@@ -347,17 +350,13 @@
     }
 
     if (burger && mobileNav) {
-      closeMobileNav(); // FORZA CHIUSO
-
+      closeMobileNav();
       burger.addEventListener('click', () => {
         const isOpen = mobileNav.classList.contains('open');
         if (isOpen) closeMobileNav();
         else openMobileNav();
       });
-
-      mobileNav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => closeMobileNav());
-      });
+      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
     }
 
     // Formspree AJAX
@@ -402,3 +401,4 @@
   </script>
 </body>
 </html>
+
