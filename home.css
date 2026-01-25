@@ -10,7 +10,7 @@
   --primary: #0f766e;
   --primary-dark: #064e3b;
 
-  /* OVERLAY SUPER SOFT (prima era troppo scuro) */
+  /* overlay soft */
   --hero-overlay: 0.12;
 }
 
@@ -25,6 +25,12 @@ body{
 a{ color: inherit; text-decoration:none; }
 .wrap{ max-width: 1120px; margin: 0 auto; padding: 18px; }
 section[id]{ scroll-margin-top: 84px; }
+
+/* justify (solo dove ha senso) */
+.justify{
+  text-align: justify;
+  text-justify: inter-word;
+}
 
 /* Buttons */
 .btn{
@@ -68,21 +74,9 @@ section[id]{ scroll-margin-top: 84px; }
 .topbar-inner{
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-end; /* brand rimosso */
   gap: 14px;
 }
-.brand{ display:flex; align-items:center; gap: 12px; }
-.brand-mark{
-  width: 34px; height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  box-shadow: var(--shadow);
-}
-.brand-text{ display:flex; flex-direction:column; line-height:1.1; }
-.brand-name{ font-weight: 600; letter-spacing:.2px; color: white; }
-.brand-sub{ font-size: 12px; margin-top: 3px; color: rgba(255,255,255,0.78); }
-.topbar.scrolled .brand-name{ color: var(--text); }
-.topbar.scrolled .brand-sub{ color: var(--muted); }
 
 .nav{ display:flex; align-items:center; gap: 14px; }
 .nav a{ color: rgba(255,255,255,0.80); font-weight: 500; }
@@ -113,9 +107,9 @@ section[id]{ scroll-margin-top: 84px; }
 }
 .topbar.scrolled .burger span{ background: var(--text); }
 
-/* Mobile nav: MAI visibile di default */
+/* Mobile nav: mai visibile finché non open */
 .mobile-nav{
-  display:none;               /* <- BLOCCO ANTI-SPAM */
+  display:none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -127,7 +121,6 @@ section[id]{ scroll-margin-top: 84px; }
 }
 .mobile-nav.open{ display:grid; }
 .mobile-nav[hidden]{ display:none !important; }
-
 .mobile-nav a{
   padding: 10px 12px;
   border-radius: 12px;
@@ -171,24 +164,12 @@ section[id]{ scroll-margin-top: 84px; }
 .hero-overlay{
   position:absolute;
   inset:0;
-  /* SUPER SOFT */
   background: rgba(0,0,0,var(--hero-overlay));
 }
 .hero-content{ position:relative; z-index:1; max-width: 900px; }
 
-.pill{
-  display:inline-flex;
-  align-items:center;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.16);
-  font-size: 13px;
-  font-weight: 500;
-}
-
 h1{
-  margin: 14px 0 10px;
+  margin: 0 0 10px;
   font-size: clamp(34px, 4.8vw, 58px);
   line-height: 1.05;
   letter-spacing: -0.5px;
@@ -201,8 +182,7 @@ h1{
   color: rgba(255,255,255,0.92);
   max-width: 62ch;
 }
-.actions{ display:flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 10px; }
-.micro{ margin: 0; color: rgba(255,255,255,0.78); font-size: 13px; }
+.actions{ display:flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
 
 /* Scroll hint */
 .scroll-hint{
@@ -247,6 +227,7 @@ h2{
 }
 .muted{ margin: 0; color: var(--muted); line-height: 1.75; font-size: 15px; }
 
+/* Mini points */
 .mini-points{ margin-top: 18px; display:grid; gap: 12px; }
 .mini-point{
   display:flex; gap: 12px; align-items:flex-start;
@@ -265,8 +246,14 @@ h2{
 .mini-title{ font-weight: 600; }
 .mini-text{ color: var(--muted); font-size: 13px; margin-top: 2px; }
 
-.steps{ margin-top: 18px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.center-cta{ margin-top: 18px; }
+
+/* Steps: numero a sinistra, testo a destra */
+.steps{ margin-top: 18px; display:grid; gap: 12px; }
 .step{
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
   background: rgba(255,255,255,0.85);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -279,13 +266,12 @@ h2{
   display:flex; align-items:center; justify-content:center;
   font-weight: 700; color: white;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  margin-bottom: 10px;
+  flex: 0 0 36px;
 }
-.step h3{ margin: 0 0 6px; font-weight: 600; font-size: 16px; }
-.step p{ margin: 0; color: var(--muted); line-height: 1.7; }
+.step-body h3{ margin: 0 0 6px; font-weight: 600; font-size: 16px; }
+.step-body p{ margin: 0; color: var(--muted); line-height: 1.7; }
 
-.center-cta{ margin-top: 18px; }
-
+/* Cards */
 .cards{ margin-top: 16px; display:grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .card{
   background: rgba(255,255,255,0.90);
@@ -296,6 +282,7 @@ h2{
 }
 .card h3{ margin: 0 0 8px; font-weight: 600; font-size: 16px; }
 
+/* CTA band */
 .cta-band{
   margin-top: 16px;
   display:flex;
@@ -311,19 +298,7 @@ h2{
 .cta-sub{ color: var(--muted); margin-top: 4px; font-size: 13px; }
 .cta-actions{ display:flex; gap: 10px; flex-wrap: wrap; }
 
-.footer{
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-}
-.footer-brand{ font-weight: 600; }
-.tiny{ font-size: 12px; color: var(--muted); }
-.sep{ opacity: .6; padding: 0 6px; }
-
+/* Form card */
 .form-card{
   margin-top: 16px;
   background: rgba(255,255,255,0.92);
@@ -363,13 +338,31 @@ textarea{ resize: vertical; }
 .form-status.err{ color: #b42318; font-weight: 600; }
 .hp{ display:none !important; }
 
+/* Footer in fondo */
+.site-footer{
+  border-top: 1px solid var(--line);
+  background: rgba(246,248,251,0.92);
+}
+.footer{
+  padding-top: 16px;
+  padding-bottom: 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+}
+.footer-brand{ font-weight: 600; }
+.tiny{ font-size: 12px; color: var(--muted); }
+.sep{ opacity: .6; padding: 0 6px; }
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   .hero-video{ display:none; }
   .scroll-hint i{ animation:none; }
 }
 
+/* Responsive */
 @media (max-width: 980px){
-  .steps{ grid-template-columns: 1fr; }
   .cards{ grid-template-columns: 1fr; }
   .cta-band{ flex-direction: column; align-items:flex-start; }
 }
@@ -377,4 +370,9 @@ textarea{ resize: vertical; }
   .nav{ display:none; }
   .burger{ display:block; }
   .grid{ grid-template-columns: 1fr; }
+}
+
+/* Evita giustificazione troppo "brutta" su schermi piccoli */
+@media (max-width: 520px){
+  .justify{ text-align: left; }
 }
