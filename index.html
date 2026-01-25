@@ -14,7 +14,6 @@
 </head>
 
 <body>
-  <!-- TOP BAR -->
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#home" aria-label="Immobile Protetto - Home">
@@ -37,7 +36,7 @@
       </button>
     </div>
 
-    <!-- Mobile nav -->
+    <!-- Mobile nav: DEVE stare nascosto finché non apri il burger -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <a href="#cose">Che cos’è</a>
       <a href="#cosa">Cosa facciamo</a>
@@ -47,7 +46,7 @@
   </header>
 
   <main class="snap">
-    <!-- 1) HERO -->
+    <!-- HERO -->
     <section id="home" class="panel hero">
       <video
         id="bgVideo"
@@ -91,14 +90,12 @@
       </a>
     </section>
 
-    <!-- 2) CHE COS’È -->
+    <!-- 2 -->
     <section id="cose" class="panel">
       <div class="wrap content">
         <h2>Che cos’è Immobile Protetto?</h2>
 
-        <p class="question">
-          È la piattaforma che seleziona gli inquilini sulla base delle tue preferenze.
-        </p>
+        <p class="question">È la piattaforma che seleziona gli inquilini sulla base delle tue preferenze.</p>
 
         <p class="muted">
           Non devi pensare a spese di custodia, di gestione e di manutenzione:
@@ -137,14 +134,12 @@
       </div>
     </section>
 
-    <!-- 3) COSA FACCIAMO -->
+    <!-- 3 -->
     <section id="cosa" class="panel panel-soft">
       <div class="wrap content">
         <h2>Cosa facciamo?</h2>
 
-        <p class="question">
-          Mettiamo in sicurezza il tuo immobile e ci occupiamo della gestione.
-        </p>
+        <p class="question">Mettiamo in sicurezza il tuo immobile e ci occupiamo della gestione.</p>
 
         <p class="muted">
           Gestione completa, selezione inquilini e burocrazia <strong>a costo zero</strong>.
@@ -177,7 +172,7 @@
       </div>
     </section>
 
-    <!-- 4) PERCHÉ REGISTRARE -->
+    <!-- 4 -->
     <section id="perche" class="panel">
       <div class="wrap content">
         <h2>Perché dovresti registrare il tuo immobile?</h2>
@@ -185,30 +180,22 @@
         <div class="cards">
           <div class="card">
             <h3>Hai il pieno controllo della tua proprietà</h3>
-            <p class="muted">
-              Regole chiare, inventario e verbali: riduciamo rischi e contestazioni, con un processo trasparente.
-            </p>
+            <p class="muted">Regole chiare, inventario e verbali: riduciamo rischi e contestazioni, con un processo trasparente.</p>
           </div>
 
           <div class="card">
             <h3>Immobile curato</h3>
-            <p class="muted">
-              Manutenzione ordinaria e ripristino quando necessario: la casa resta in ordine nel tempo.
-            </p>
+            <p class="muted">Manutenzione ordinaria e ripristino quando necessario: la casa resta in ordine nel tempo.</p>
           </div>
 
           <div class="card">
             <h3>Zero gestione</h3>
-            <p class="muted">
-              Ci occupiamo di richieste, burocrazia, assistenza e attività operative.
-            </p>
+            <p class="muted">Ci occupiamo di richieste, burocrazia, assistenza e attività operative.</p>
           </div>
 
           <div class="card">
             <h3>Impatto sociale positivo</h3>
-            <p class="muted">
-              Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.
-            </p>
+            <p class="muted">Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.</p>
           </div>
         </div>
 
@@ -219,7 +206,6 @@
           </div>
           <div class="cta-actions">
             <a class="btn" href="#contatto">Registrala ora</a>
-            <a class="btn btn-ghost-dark" href="old.html">Vedi la vecchia pagina</a>
           </div>
         </div>
 
@@ -239,7 +225,7 @@
       </div>
     </section>
 
-    <!-- 5) CONTATTO (FORM IN FONDO) -->
+    <!-- 5 CONTATTO -->
     <section id="contatto" class="panel panel-soft">
       <div class="wrap content">
         <h2>Registra il tuo immobile</h2>
@@ -334,35 +320,44 @@
       });
     }
 
-    // Burger menu
-    const burger = document.querySelector('.burger');
-    const mobileNav = document.getElementById('mobileNav');
-    if (burger && mobileNav) {
-      burger.addEventListener('click', () => {
-        const open = !mobileNav.hasAttribute('hidden');
-        if (open) {
-          mobileNav.setAttribute('hidden', '');
-          burger.setAttribute('aria-expanded', 'false');
-        } else {
-          mobileNav.removeAttribute('hidden');
-          burger.setAttribute('aria-expanded', 'true');
-        }
-      });
-
-      mobileNav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          mobileNav.setAttribute('hidden', '');
-          burger.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
     // Topbar: trasparente su hero, solida dopo scroll
     const topbar = document.querySelector('.topbar');
     if (topbar) {
       const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 10);
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+    }
+
+    // Mobile nav: chiuso SEMPRE all'avvio, apre solo col burger
+    const burger = document.querySelector('.burger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    function closeMobileNav() {
+      if (!mobileNav || !burger) return;
+      mobileNav.classList.remove('open');
+      mobileNav.hidden = true;
+      burger.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMobileNav() {
+      if (!mobileNav || !burger) return;
+      mobileNav.hidden = false;
+      mobileNav.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+
+    if (burger && mobileNav) {
+      closeMobileNav(); // FORZA CHIUSO
+
+      burger.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.contains('open');
+        if (isOpen) closeMobileNav();
+        else openMobileNav();
+      });
+
+      mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeMobileNav());
+      });
     }
 
     // Formspree AJAX
