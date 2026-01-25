@@ -30,8 +30,8 @@
       </button>
     </div>
 
-    <!-- Mobile nav: nascosto finché non premi burger -->
-    <div id="mobileNav" class="mobile-nav" hidden>
+    <!-- Mobile nav (NO hidden, altrimenti non anima) -->
+    <div id="mobileNav" class="mobile-nav">
       <a href="#cose">Che cos’è</a>
       <a href="#cosa">Cosa facciamo</a>
       <a href="#perche">Perché registrare</a>
@@ -66,7 +66,6 @@
           Per te un servizio di <strong>tutela</strong> e un’<strong>assicurazione gratuita</strong>.
         </p>
 
-        <!-- Prima Scopri, poi Registra -->
         <div class="actions">
           <a class="btn btn-ghost" href="#cose">Scopri come funziona</a>
           <a class="btn" href="#contatto">Registra qui il tuo immobile</a>
@@ -139,7 +138,6 @@
           In più, ti forniamo un’<strong>assicurazione gratuita</strong> per mettere al sicuro il tuo immobile.
         </p>
 
-        <!-- Numeri affiancati al testo -->
         <div class="steps">
           <div class="step">
             <div class="step-n">1</div>
@@ -293,7 +291,6 @@
       </div>
     </section>
 
-    <!-- FOOTER IN FONDO -->
     <footer class="site-footer">
       <div class="wrap footer">
         <div class="footer-left">
@@ -331,44 +328,28 @@
       onScroll();
     }
 
-    // Mobile nav con animazione (burger X + slide)
+    // Burger + menu mobile animato (slide)
     const burger = document.querySelector('.burger');
     const mobileNav = document.getElementById('mobileNav');
 
-    function closeMobileNav() {
-      if (!mobileNav || !burger) return;
+    if (burger && mobileNav) {
+      // chiuso all'avvio
       burger.classList.remove('is-open');
       mobileNav.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
 
-      // lascia tempo alla transition, poi nascondi davvero
-      window.setTimeout(() => { mobileNav.hidden = true; }, 220);
-    }
-
-    function openMobileNav() {
-      if (!mobileNav || !burger) return;
-      mobileNav.hidden = false; // serve per renderizzare l'elemento
-      requestAnimationFrame(() => {
-        burger.classList.add('is-open');
-        mobileNav.classList.add('open');
-        burger.setAttribute('aria-expanded', 'true');
-      });
-    }
-
-    if (burger && mobileNav) {
-      // FORZA CHIUSO all'avvio
-      mobileNav.hidden = true;
-      burger.classList.remove('is-open');
-      mobileNav.classList.remove('open');
-
       burger.addEventListener('click', () => {
-        const isOpen = mobileNav.classList.contains('open');
-        if (isOpen) closeMobileNav();
-        else openMobileNav();
+        const open = mobileNav.classList.toggle('open');
+        burger.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
 
       mobileNav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => closeMobileNav());
+        a.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          burger.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
       });
     }
 
