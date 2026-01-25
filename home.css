@@ -377,4 +377,44 @@ textarea{ resize: vertical; }
   .justify{ text-align: left; }
 }
 
+/* =========================
+   ANIMAZIONI MENU (BURGER + MOBILE NAV)
+   ========================= */
 
+/* Burger -> X animata */
+.burger{
+  position: relative;
+  display:none;
+  gap: 0;
+}
+.burger span{
+  transition: transform .22s ease, opacity .18s ease;
+  transform-origin: center;
+}
+.burger.is-open span:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+.burger.is-open span:nth-child(2){
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav: slide + fade */
+.mobile-nav{
+  /* resta display:none di default, ma quando è .open si anima */
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: transform .22s ease, opacity .22s ease;
+  will-change: transform, opacity;
+}
+.mobile-nav.open{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* micro animazioni link nel menu mobile */
+.mobile-nav a{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.mobile-nav a:active{
+  transform: scale(0.99);
+}
