@@ -10,7 +10,8 @@
   --primary: #0f766e;
   --primary-dark: #064e3b;
 
-  --hero-overlay: 0.12;
+  /* overlay soft */
+  --hero-overlay: 0.11;
 }
 
 *{ box-sizing:border-box; }
@@ -25,6 +26,7 @@ a{ color: inherit; text-decoration:none; }
 .wrap{ max-width: 1120px; margin: 0 auto; padding: 18px; }
 section[id]{ scroll-margin-top: 84px; }
 
+/* justify (solo dove ha senso) */
 .justify{
   text-align: justify;
   text-justify: inter-word;
@@ -42,7 +44,6 @@ section[id]{ scroll-margin-top: 84px; }
   border: 1px solid rgba(255,255,255,0.0);
   font-weight: 600;
   box-shadow: var(--shadow);
-  transition: transform .12s ease, filter .12s ease;
 }
 .btn:hover{ filter: brightness(0.98); }
 .btn:active{ transform: translateY(0.5px); }
@@ -73,7 +74,7 @@ section[id]{ scroll-margin-top: 84px; }
 .topbar-inner{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
+  justify-content:flex-end; /* brand rimosso */
   gap: 14px;
 }
 
@@ -83,63 +84,43 @@ section[id]{ scroll-margin-top: 84px; }
 .topbar.scrolled .nav a{ color: var(--muted); }
 .topbar.scrolled .nav a:hover{ color: var(--text); }
 
-/* Burger (desktop: hidden) */
+/* Burger */
 .burger{
   display:none;
-  position: relative;
-  width: 44px;
-  height: 40px;
+  width: 44px; height: 40px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.25);
   background: rgba(0,0,0,0.12);
-  cursor: pointer;
-  padding: 0;
+  cursor:pointer;
 }
 .burger span{
-  position: absolute;
-  left: 50%;
+  display:block;
   width: 18px;
   height: 2px;
-  background: rgba(255,255,255,0.92);
-  transform: translateX(-50%);
-  transition: transform .22s ease, top .22s ease, opacity .18s ease;
+  background: rgba(255,255,255,0.9);
+  margin: 6px auto;
+  opacity: .95;
 }
-.burger span:nth-child(1){ top: 14px; }
-.burger span:nth-child(2){ top: 24px; }
+.topbar.scrolled .burger{
+  border-color: var(--line);
+  background: rgba(255,255,255,0.70);
+}
+.topbar.scrolled .burger span{ background: var(--text); }
 
-/* Burger -> X */
-.burger.is-open span:nth-child(1){
-  top: 19px;
-  transform: translateX(-50%) rotate(45deg);
-}
-.burger.is-open span:nth-child(2){
-  top: 19px;
-  transform: translateX(-50%) rotate(-45deg);
-}
-
-/* Mobile nav animato (chiuso di default) */
+/* Mobile nav: mai visibile finché non open */
 .mobile-nav{
-  display: grid;
-  gap: 10px;
-  padding: 0 18px;
-  background: rgba(246,248,251,0.98);
+  display:none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   border-top: 1px solid var(--line);
-
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-  overflow: hidden;
-  pointer-events: none;
-
-  transition: max-height .28s ease, opacity .22s ease, transform .22s ease, padding .22s ease;
-}
-.mobile-nav.open{
   padding: 12px 18px 16px;
-  max-height: 420px;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  gap: 10px;
+  background: rgba(246,248,251,0.98);
 }
+.mobile-nav.open{ display:grid; }
+.mobile-nav[hidden]{ display:none !important; }
 .mobile-nav a{
   padding: 10px 12px;
   border-radius: 12px;
@@ -267,7 +248,7 @@ h2{
 
 .center-cta{ margin-top: 18px; }
 
-/* Steps */
+/* Steps: numero a sinistra, testo a destra */
 .steps{ margin-top: 18px; display:grid; gap: 12px; }
 .step{
   display:flex;
@@ -326,6 +307,7 @@ h2{
   padding: 16px;
   box-shadow: var(--shadow);
 }
+
 .grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 label{ display:block; font-size: 13px; color: var(--muted); font-weight: 500; }
 input, select, textarea{
@@ -339,6 +321,7 @@ input, select, textarea{
   font-size: 14px;
 }
 textarea{ resize: vertical; }
+
 .consent{
   display:flex;
   gap: 10px;
@@ -355,7 +338,7 @@ textarea{ resize: vertical; }
 .form-status.err{ color: #b42318; font-weight: 600; }
 .hp{ display:none !important; }
 
-/* Footer */
+/* Footer in fondo */
 .site-footer{
   border-top: 1px solid var(--line);
   background: rgba(246,248,251,0.92);
@@ -374,6 +357,7 @@ textarea{ resize: vertical; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){
+  .hero-video{ display:none; }
   .scroll-hint i{ animation:none; }
 }
 
@@ -383,10 +367,55 @@ textarea{ resize: vertical; }
   .cta-band{ flex-direction: column; align-items:flex-start; }
 }
 @media (max-width: 760px){
-  .nav{ display:none !important; }
-  .burger{ display:block !important; }
+  .nav{ display:none; }
+  .burger{ display:block; }
   .grid{ grid-template-columns: 1fr; }
 }
+
+/* Evita giustificazione troppo "brutta" su schermi piccoli */
 @media (max-width: 520px){
   .justify{ text-align: left; }
 }
+
+/* =========================
+   ANIMAZIONI MENU (BURGER + MOBILE NAV)
+   ========================= */
+
+/* Burger -> X animata */
+.burger{
+  position: relative;
+  display:none;
+  gap: 0;
+}
+.burger span{
+  transition: transform .22s ease, opacity .18s ease;
+  transform-origin: center;
+}
+.burger.is-open span:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+.burger.is-open span:nth-child(2){
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile nav: slide + fade */
+.mobile-nav{
+  /* resta display:none di default, ma quando è .open si anima */
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: transform .22s ease, opacity .22s ease;
+  will-change: transform, opacity;
+}
+.mobile-nav.open{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* micro animazioni link nel menu mobile */
+.mobile-nav a{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.mobile-nav a:active{
+  transform: scale(0.99);
+}
+
