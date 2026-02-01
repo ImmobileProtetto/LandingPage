@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="home.css" />
 </head>
@@ -16,7 +16,7 @@
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <nav class="nav">
+      <nav class="nav" aria-label="Menu principale">
         <a href="#cose">Che cos’è</a>
         <a href="#cosa">Cosa facciamo</a>
         <a href="#perche">Perché conviene</a>
@@ -111,8 +111,8 @@
           Gestione completa, burocrazia e assicurazione a <strong>costo zero</strong>.
         </p>
 
-        <!-- COME FUNZIONA: reso protagonista -->
-        <div class="how-wrap">
+        <!-- COME FUNZIONA (in evidenza) -->
+        <div class="how-wrap" aria-label="Come funziona">
           <div class="how-kicker">Il processo in 3 step</div>
           <h2 class="how-title">Come funziona</h2>
 
@@ -137,7 +137,7 @@
           </div>
         </div>
 
-        <!-- (RIMOSSO su tua richiesta) la sezione steps 1/2/3 “Valutazione rapida / Tutela e regole / Selezione e avvio” -->
+        <!-- RIMOSSO: steps “Valutazione rapida / Tutela e regole / Selezione e avvio” -->
 
         <div class="center-cta">
           <div class="actions actions-center">
@@ -300,7 +300,7 @@
       onScroll();
     }
 
-    // Mobile nav con animazione (burger X + slide)
+    // Mobile nav (burger X + slide)
     const burger = document.querySelector('.burger');
     const mobileNav = document.getElementById('mobileNav');
 
