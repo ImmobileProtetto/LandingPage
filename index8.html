@@ -1,0 +1,378 @@
+<!-- index4.html -->
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Immobile Protetto • Valorizza e proteggi il tuo immobile inutilizzato</title>
+  <meta name="description" content="Hai un immobile inutilizzato? Registralo gratuitamente su Immobile Protetto: selezione inquilini (dipendenti pubblici), gestione e tutela con assicurazione gratuita." />
+
+  <!-- FAVICON (light/dark) -->
+  <link rel="icon" href="favicon_light.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="favicon_dark.ico" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="home8.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <!-- BRAND: click torna su, immagini non selezionabili via CSS -->
+      <a class="brand" href="#home" aria-label="Torna alla home">
+        <img
+          id="brandMark"
+          class="brand-mark"
+          src="logo/mark_dark.png"
+          data-dark="logo/mark_dark.png"
+          data-light="logo/mark_light.png"
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        >
+        <img
+          id="brandWord"
+          class="brand-word"
+          src="logo/brand_dark.png"
+          data-dark="logo/brand_dark.png"
+          data-light="logo/brand_light.png"
+          alt="Immobile Protetto"
+          draggable="false"
+        >
+      </a>
+
+      <nav class="nav" aria-label="Menu principale">
+        <a href="#cose">Che cos’è</a>
+        <a href="#cosa">Cosa facciamo</a>
+        <a href="#perche">Perché conviene</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-small" href="#contatto">Registra</a>
+      </nav>
+
+      <button class="burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <a href="#cose">Che cos’è</a>
+      <a href="#cosa">Cosa facciamo</a>
+      <a href="#perche">Perché conviene</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-full" href="#contatto">✅ Registra il tuo immobile</a>
+    </div>
+  </header>
+
+  <main class="snap">
+    <!-- 1) HERO -->
+    <section id="home" class="panel hero">
+      <video
+        id="bgVideo"
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/hero-poster.jpg"
+        aria-hidden="true"
+      >
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="wrap hero-content">
+        <h1>Hai un immobile inutilizzato?</h1>
+
+        <p class="lead justify">
+          Registralo gratuitamente su <strong>Immobile Protetto</strong> per valorizzarlo.
+          Per te un servizio di <strong>tutela</strong> e un’<strong>assicurazione gratuita</strong>.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-ghost" href="#cose">Scopri come funziona</a>
+          <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#cose" aria-label="Scorri alla sezione successiva">
+        <span>Scorri</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- 2) CHE COS’È -->
+    <section id="cose" class="panel">
+      <div class="wrap content">
+        <h2>Che cos’è Immobile Protetto?</h2>
+
+        <p class="question justify">
+          È la piattaforma che ti permette di selezionare gli inquilini sulla base delle tue preferenze.
+        </p>
+
+        <p class="muted justify">
+          Se hai un immobile fermo, vuoto o poco valorizzato, puoi <strong>riattivarlo</strong> in modo semplice e sicuro.<br>
+          Non devi pensare a spese di custodia, di gestione e di manutenzione. Ti aiutiamo a mantenere l’immobile <strong>curato</strong> e <strong>protetto</strong>.
+        </p>
+
+        <div class="center-cta">
+          <div class="actions actions-center">
+            <a class="btn btn-ghost section-btn" href="#cosa">Cosa facciamo</a>
+            <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) COSA FACCIAMO -->
+    <section id="cosa" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>Cosa facciamo?</h2>
+
+        <p class="question justify">
+          Mettiamo in sicurezza il tuo immobile.
+        </p>
+
+        <p class="muted justify">
+          Gestione completa, burocrazia e assicurazione a <strong>costo zero</strong>.
+        </p>
+
+        <!-- COME FUNZIONA (in evidenza) -->
+        <div class="how-wrap" aria-label="Come funziona">
+          <h2 class="how-title">Come funziona</h2>
+
+          <div class="how-cards" role="list">
+            <div class="how-card" role="listitem">
+              <div class="how-n">1</div>
+              <div class="how-head">Registrazione gratuita</div>
+              <div class="how-text">Compila il nostro form</div>
+            </div>
+
+            <div class="how-card" role="listitem">
+              <div class="how-n">2</div>
+              <div class="how-head">Valutazione gratuita</div>
+              <div class="how-text">Concordiamo un sopralluogo per verificare l’idoneità</div>
+            </div>
+
+            <div class="how-card" role="listitem">
+              <div class="how-n">3</div>
+              <div class="how-head">La nostra soluzione gratuita</div>
+              <div class="how-text">Riattiviamo l’immobile in base alle tue preferenze</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIMOSSO: steps “Valutazione rapida / Tutela e regole / Selezione e avvio” -->
+
+        <div class="center-cta">
+          <div class="actions actions-center">
+            <a class="btn btn-ghost section-btn" href="#perche">Perché conviene</a>
+            <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) PERCHÉ CONVIENE -->
+    <section id="perche" class="panel">
+      <div class="wrap content">
+        <h2>Perché conviene registrare il tuo immobile?</h2>
+
+        <div class="cards cards-vertical">
+          <div class="card">
+            <h3>Proprietà tutelata</h3>
+            <p class="muted justify">Mantieni il controllo della tua proprietà, garantiamo noi per te</p>
+          </div>
+
+          <div class="card">
+            <h3>Immobile curato</h3>
+            <p class="muted justify">Manutenzione ordinaria e ripristino: la casa resta valorizzata nel tempo</p>
+          </div>
+
+          <div class="card">
+            <h3>Zero gestione</h3>
+            <p class="muted justify">Ci occupiamo di richieste, burocrazia, assistenza e attività operative.</p>
+          </div>
+
+          <div class="card">
+            <h3>Impatto sociale positivo</h3>
+            <p class="muted justify">Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.</p>
+          </div>
+        </div>
+
+        <div class="center-cta">
+          <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) FAQ -->
+    <section id="faq" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>FAQ</h2>
+        <p class="muted justify">Risposte chiare alle domande più comuni (e alle obiezioni tipiche) prima di registrare.</p>
+
+        <div class="faq-wrap">
+          <details class="faq-item">
+            <summary><span class="faq-q">La registrazione è davvero gratuita?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Sì. Serve per la valutazione iniziale dell’immobile e <strong>non comporta costi</strong>.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Il sopralluogo è gratuito?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Sì, quando l’immobile risulta compatibile dopo la prima valutazione.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Registrare l’immobile mi vincola in qualche modo?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">No. La registrazione serve a capire rapidamente se ha senso procedere. Decidi tu se andare avanti dopo la proposta operativa.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Quanto tempo ci mettete a ricontattarmi?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Dopo l’invio della richiesta, ti ricontattiamo per la prima valutazione entro <strong>1–2 giorni lavorativi</strong>.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Operate solo su Pescara e Chieti?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">In questa fase sì: Pescara, Chieti e aree limitrofe.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Che tipo di immobili accettate?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Indicativamente: immobili in buono stato (o con piccoli interventi), arredati (o arredabili), adatti a una famiglia (almeno 3 persone) in zona Pescara/Chieti. Ogni caso viene valutato.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">E se il mio immobile non è idoneo?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Te lo diciamo chiaramente (sì/no e perché). Se servono piccoli interventi, li evidenziamo così puoi decidere come muoverti.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Chi sono gli inquilini e come li selezionate?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">L’obiettivo è una selezione più sicura: criteri definiti e documentazione verificata, tenendo conto anche delle preferenze del proprietario quando possibile.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Posso dire “no” a un profilo che non mi convince?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Nella proposta operativa definiamo il perimetro di selezione e il livello di coinvolgimento del proprietario, così da evitare sorprese.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Cosa fate per evitare danni e contestazioni?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Regole chiare, inventario iniziale e gestione ordinata delle consegne: tutto serve a ridurre ambiguità e a proteggere l’immobile.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Chi gestisce guasti, manutenzioni e urgenze?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Hai un referente unico: nella proposta operativa chiariremo chi gestisce cosa, tempi di intervento e modalità di autorizzazione (soprattutto per interventi non urgenti).</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Come funziona economicamente? Quanto mi costa?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">La registrazione e la fase di valutazione/sopralluogo sono gratuite. Se l’immobile è idoneo, ti presentiamo una proposta chiara con costi e cosa è incluso (senza “sorprese”).</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Chi incassa e come vengono gestiti pagamenti e documenti?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Lo definiamo nella proposta operativa, in modo trasparente (flussi, scadenze, responsabilità e documentazione).</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">E se voglio rientrare in casa o vendere l’immobile?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Nella proposta operativa indichiamo regole e tempi di uscita/preavviso, per darti margine di manovra senza caos.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary><span class="faq-q">Cosa fate con i miei dati?</span><span class="faq-ico">+</span></summary>
+            <div class="faq-a">Usiamo i dati solo per ricontatto e valutazione dell’immobile, come indicato nel form. (Consiglio: pubblicare una pagina Privacy completa e link funzionante.)</div>
+          </details>
+        </div>
+
+        <div class="center-cta">
+          <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) CONTATTO -->
+    <section id="contatto" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>Registra il tuo immobile</h2>
+        <p class="muted justify">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</p>
+
+        <div class="form-card">
+          <form id="leadForm" class="form" action="https://formspree.io/f/xjggypap" method="POST">
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+
+            <div class="grid">
+              <label>Nome e Cognome
+                <input name="name" autocomplete="name" required />
+              </label>
+
+              <label>Comune
+                <input name="city" placeholder="Es. Pescara" required />
+              </label>
+
+              <label>Email
+                <input type="email" name="email" autocomplete="email" placeholder="nome@email.it" required />
+              </label>
+
+              <label>Telefono / WhatsApp (opzionale)
+                <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+39 ..." />
+              </label>
+
+              <label>Tipologia immobile
+                <select name="type" required>
+                  <option value="">Seleziona…</option>
+                  <option>Monolocale</option>
+                  <option>Bilocale</option>
+                  <option>Trilocale</option>
+                  <option>Stanza in appartamento</option>
+                </select>
+              </label>
+
+              <label>Arredato?
+                <select name="furnished" required>
+                  <option value="">Seleziona…</option>
+                  <option>Sì</option>
+                  <option>No</option>
+                  <option>Parzialmente</option>
+                </select>
+              </label>
+
+              <label>Disponibilità
+                <select name="availability" required>
+                  <option value="">Seleziona…</option>
+                  <option>Subito</option>
+                  <option>Entro 30 giorni</option>
+                  <option>Entro 60 giorni</option>
+                  <option>Oltre 60 giorni</option>
+                </select>
+              </label>
+
+              <label>Stato immobile (indicativo)
+                <select name="condition" required>
+                  <option value="">Seleziona…</option>
+                  <option>Ottimo / pronto</option>
+                  <option>Buono / piccoli interventi</option>
+                  <option>Da rivedere</option>
+                </select>
+              </label>
+            </div>
+
+            <label>Note (opzionale)
+              <textarea name="notes" rows="3" placeholder="Es. zona, ascensore, posto auto, arredi, ecc."></textarea>
+            </label>
+
+            <label class="consent">
+              <input type="checkbox" required />
+              Acconsento a essere ricontattata e dichiaro di aver letto l’informativa privacy.
+            </label>
+
+            <button class="btn btn-full" type="submit">Invia richiesta</button>
+            <p id="formStatus" class="form-status" role="status" aria-live=
