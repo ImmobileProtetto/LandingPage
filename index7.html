@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Immobile Protetto • Valorizza e proteggi il tuo immobile inutilizzato</title>
+  <meta name="description" content="Hai un immobile inutilizzato? Registralo gratuitamente su Immobile Protetto: selezione inquilini (dipendenti pubblici), gestione e tutela con assicurazione gratuita." />
+
+  <!-- FAVICON (light/dark) -->
+  <link rel="icon" href="favicon_light.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" href="favicon_dark.ico" media="(prefers-color-scheme: dark)" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="home7.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <!-- BRAND -->
+      <a class="brand" href="#home" aria-label="Immobile Protetto">
+        <!-- Wordmark (desktop): su HERO (topbar non scrolled) -->
+        <img class="brand-img dark" src="logo/brand_dark.png" alt="Immobile Protetto" draggable="false" />
+        <!-- Wordmark (desktop): dopo scroll -->
+        <img class="brand-img light" src="logo/brand_light.png" alt="" aria-hidden="true" draggable="false" />
+
+        <!-- Mark (mobile): su HERO -->
+        <img class="brand-mark dark" src="logo/mark_dark.png" alt="Immobile Protetto" draggable="false" />
+        <!-- Mark (mobile): dopo scroll -->
+        <img class="brand-mark light" src="logo/mark_light.png" alt="" aria-hidden="true" draggable="false" />
+      </a>
+
+      <div class="top-actions">
+        <nav class="nav" aria-label="Menu principale">
+          <a href="#cose">Che cos’è</a>
+          <a href="#cosa">Cosa facciamo</a>
+          <a href="#perche">Perché conviene</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn btn-small" href="#contatto">Registra</a>
+        </nav>
+
+        <button class="burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <a href="#cose">Che cos’è</a>
+      <a href="#cosa">Cosa facciamo</a>
+      <a href="#perche">Perché conviene</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-full" href="#contatto">✅ Registra il tuo immobile</a>
+    </div>
+  </header>
+
+  <main class="snap">
+    <!-- 1) HERO -->
+    <section id="home" class="panel hero">
+      <video
+        id="bgVideo"
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/hero-poster.jpg"
+        aria-hidden="true"
+      >
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="wrap hero-content">
+        <h1>Hai un immobile inutilizzato?</h1>
+
+        <p class="lead justify">
+          Registralo gratuitamente su <strong>Immobile Protetto</strong> per valorizzarlo.
+          Per te un servizio di <strong>tutela</strong> e un’<strong>assicurazione gratuita</strong>.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-ghost" href="#cose">Scopri come funziona</a>
+          <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#cose" aria-label="Scorri alla sezione successiva">
+        <span>Scorri</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- 2) CHE COS’È -->
+    <section id="cose" class="panel">
+      <div class="wrap content">
+        <h2>Che cos’è Immobile Protetto?</h2>
+
+        <p class="question justify">
+          È la piattaforma che ti permette di selezionare gli inquilini sulla base delle tue preferenze.
+        </p>
+
+        <p class="muted justify">
+          Se hai un immobile fermo, vuoto o poco valorizzato, puoi <strong>riattivarlo</strong> in modo semplice e sicuro.<br>
+          Non devi pensare a spese di custodia, di gestione e di manutenzione. Ti aiutiamo a mantenere l’immobile <strong>curato</strong> e <strong>protetto</strong>.
+        </p>
+
+        <div class="center-cta">
+          <div class="actions actions-center">
+            <a class="btn btn-ghost section-btn" href="#cosa">Cosa facciamo</a>
+            <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) COSA FACCIAMO -->
+    <section id="cosa" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>Cosa facciamo?</h2>
+
+        <p class="question justify">
+          Mettiamo in sicurezza il tuo immobile.
+        </p>
+
+        <p class="muted justify">
+          Gestione completa, burocrazia e assicurazione a <strong>costo zero</strong>.
+        </p>
+
+        <!-- COME FUNZIONA (in evidenza) -->
+        <div class="how-wrap" aria-label="Come funziona">
+          <h2 class="how-title">Come funziona</h2>
+
+          <div class="how-cards" role="list">
+            <div class="how-card" role="listitem">
+              <div class="how-n">1</div>
+              <div class="how-head">Registrazione gratuita</div>
+              <div class="how-text">Compila il nostro form</div>
+            </div>
+
+            <div class="how-card" role="listitem">
+              <div class="how-n">2</div>
+              <div class="how-head">Valutazione gratuita</div>
+              <div class="how-text">Concordiamo un sopralluogo per verificare l’idoneità</div>
+            </div>
+
+            <div class="how-card" role="listitem">
+              <div class="how-n">3</div>
+              <div class="how-head">La nostra soluzione gratuita</div>
+              <div class="how-text">Riattiviamo l’immobile in base alle tue preferenze</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIMOSSO: steps “Valutazione rapida / Tutela e regole / Selezione e avvio” -->
+
+        <div class="center-cta">
+          <div class="actions actions-center">
+            <a class="btn btn-ghost section-btn" href="#perche">Perché conviene</a>
+            <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) PERCHÉ CONVIENE -->
+    <section id="perche" class="panel">
+      <div class="wrap content">
+        <h2>Perché conviene registrare il tuo immobile?</h2>
+
+        <div class="cards cards-vertical">
+          <div class="card">
+            <h3>Proprietà tutelata</h3>
+            <p class="muted justify">Mantieni il controllo della tua proprietà, garantiamo noi per te</p>
+          </div>
+
+          <div class="card">
+            <h3>Immobile curato</h3>
+            <p class="muted justify">Manutenzione ordinaria e ripristino: la casa resta valorizzata nel tempo</p>
+          </div>
+
+          <div class="card">
+            <h3>Zero gestione</h3>
+            <p class="muted justify">Ci occupiamo di richieste, burocrazia, assistenza e attività operative.</p>
+          </div>
+
+          <div class="card">
+            <h3>Impatto sociale positivo</h3>
+            <p class="muted justify">Contribuisci ad alloggi accessibili per dipendenti pubblici, con regole chiare e permanenze più stabili.</p>
+          </div>
+        </div>
+
+        <div class="center-cta">
+          <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) FAQ -->
+    <section id="faq" class="panel panel-soft panel-faq">
+      <div class="wrap content faq-wrap">
+        <h2>FAQ</h2>
+        <p class="muted justify faq-intro">
+          Le risposte alle domande più comuni (quelle che contano davvero quando si tratta della tua casa).
+          Se qualcosa non è chiaro, nella proposta operativa mettiamo tutto per iscritto: criteri, ruoli, tempi e responsabilità.
+        </p>
+
+        <div class="faq-grid" aria-label="Domande frequenti">
+          <details class="faq-item">
+            <summary>La registrazione è davvero gratuita?</summary>
+            <div class="faq-body"><p>Sì. La registrazione serve per la valutazione iniziale dell’immobile e non comporta costi.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Il sopralluogo è gratuito?</summary>
+            <div class="faq-body"><p>Sì: lo facciamo quando l’immobile risulta compatibile dopo la prima valutazione.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Registrare l’immobile mi vincola in qualche modo?</summary>
+            <div class="faq-body"><p>No. La registrazione serve a capire se ha senso procedere. Decidi tu se andare avanti dopo la proposta operativa.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quanto tempo ci mettete a ricontattarmi?</summary>
+            <div class="faq-body"><p>Di norma entro 1–2 giorni lavorativi per la prima valutazione e i prossimi step.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Operate solo su Pescara e Chieti?</summary>
+            <div class="faq-body"><p>In questa fase sì: Pescara, Chieti e aree limitrofe.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Che tipo di immobili accettate?</summary>
+            <div class="faq-body"><p>Indicativamente: immobili in buono stato (o con piccoli interventi), arredati (o arredabili), adatti a un nucleo di almeno 3 persone in zona Pescara/Chieti. Ogni caso viene valutato.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>E se il mio immobile non è idoneo?</summary>
+            <div class="faq-body"><p>Te lo diciamo chiaramente (sì/no e perché). Se servono piccoli interventi, li evidenziamo così puoi decidere come muoverti.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Chi sono gli inquilini e come li selezionate?</summary>
+            <div class="faq-body"><p>Obiettivo: selezione più sicura. Usiamo criteri definiti e documentazione verificata, tenendo conto anche delle preferenze del proprietario quando possibile.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Posso dire “no” a un profilo che non mi convince?</summary>
+            <div class="faq-body"><p>Nella proposta operativa definiamo perimetro di selezione e livello di coinvolgimento del proprietario, così da evitare sorprese e decisioni “al buio”.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Cosa fate per evitare danni e contestazioni?</summary>
+            <div class="faq-body"><p>Regole chiare, inventario iniziale e gestione ordinata delle consegne: serve a ridurre ambiguità e a proteggere l’immobile. In più, è prevista tutela e assicurazione secondo quanto indicato in proposta.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Chi gestisce guasti, manutenzioni e urgenze?</summary>
+            <div class="faq-body"><p>Hai un referente unico. In proposta chiariremo chi gestisce cosa, tempi di intervento e modalità di autorizzazione (soprattutto per interventi non urgenti).</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Come funziona economicamente? Quanto mi costa?</summary>
+            <div class="faq-body"><p>Registrazione e valutazione/sopralluogo sono gratuiti. Se l’immobile è idoneo, ti presentiamo una proposta chiara con costi e cosa è incluso (senza “sorprese”).</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Chi incassa e come vengono gestiti pagamenti e documenti?</summary>
+            <div class="faq-body"><p>Lo definiamo nella proposta operativa in modo trasparente: flussi, scadenze, responsabilità e documentazione.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>E se voglio rientrare in casa o vendere l’immobile?</summary>
+            <div class="faq-body"><p>Nella proposta operativa indichiamo regole e tempi di uscita/preavviso, così hai margine di manovra senza caos.</p></div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Cosa fate con i miei dati?</summary>
+            <div class="faq-body"><p>Usiamo i dati solo per ricontatto e valutazione dell’immobile, come indicato nel form e nell’informativa privacy.</p></div>
+          </details>
+        </div>
+
+        <div class="center-cta">
+          <div class="actions actions-center">
+            <a class="btn btn-ghost section-btn" href="#contatto">Vai al form</a>
+            <a class="btn" href="#contatto">✅ Registra il tuo immobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) CONTATTO -->
+    <section id="contatto" class="panel panel-soft">
+      <div class="wrap content">
+        <h2>Registra il tuo immobile</h2>
+        <p class="muted justify">Compila in 2 minuti: ti ricontattiamo entro 24/48h.</p>
+
+        <div class="form-card">
+          <form id="leadForm" class="form" action="https://formspree.io/f/xjggypap" method="POST">
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+
+            <div class="grid">
+              <label>Nome e Cognome
+                <input name="name" autocomplete="name" required />
+              </label>
+
+              <label>Comune
+                <input name="city" placeholder="Es. Pescara" required />
+              </label>
+
+              <label>Email
+                <input type="email" name="email" autocomplete="email" placeholder="nome@email.it" required />
+              </label>
+
+              <label>Telefono / WhatsApp (opzionale)
+                <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+39 ..." />
+              </label>
+
+              <label>Tipologia immobile
+                <select name="type" required>
+                  <option value="">Seleziona…</option>
+                  <option>Monolocale</option>
+                  <option>Bilocale</option>
+                  <option>Trilocale</option>
+                  <option>Stanza in appartamento</option>
+                </select>
+              </label>
+
+              <label>Arredato?
+                <select name="furnished" required>
+                  <option value="">Seleziona…</option>
+                  <option>Sì</option>
+                  <option>No</option>
+                  <option>Parzialmente</option>
+                </select>
+              </label>
+
+              <label>Disponibilità
+                <select name="availability" required>
+                  <option value="">Seleziona…</option>
+                  <option>Subito</option>
+                  <option>Entro 30 giorni</option>
+                  <option>Entro 60 giorni</option>
+                  <option>Oltre 60 giorni</option>
+                </select>
+              </label>
+
+              <label>Stato immobile (indicativo)
+                <select name="condition" required>
+                  <option value="">Seleziona…</option>
+                  <option>Ottimo / pronto</option>
+                  <option>Buono / piccoli interventi</option>
+                  <option>Da rivedere</option>
+                </select>
+              </label>
+            </div>
+
+            <label>Note (opzionale)
+              <textarea name="notes" rows="3" placeholder="Es. zona, ascensore, posto auto, arredi, ecc."></textarea>
+            </label>
+
+            <label class="consent">
+              <input type="checkbox" required />
+              Acconsento a essere ricontattata e dichiaro di aver letto l’informativa privacy.
+            </label>
+
+            <button class="btn btn-full" type="submit">Invia richiesta</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="wrap footer">
+        <div class="footer-left">
+          <img class="footer-logo" src="logo/mark_light.png" alt="" aria-hidden="true" draggable="false" />
+          <div>
+            <div class="footer-brand">Immobile Protetto</div>
+            <div class="tiny">Provincia di Pescara • Abruzzo</div>
+          </div>
+        </div>
+        <div class="footer-right tiny">
+          <a href="[LINK_PRIVACY]">Privacy</a>
+          <span class="sep">•</span>
+          <a href="mailto:[TUA_EMAIL]">[TUA_EMAIL]</a>
+          <span class="sep">•</span>
+          <a href="[INSERISCI_LINK_WHATSAPP]" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Video: più dolce (0.8x)
+    const bgVideo = document.getElementById('bgVideo');
+    if (bgVideo) {
+      bgVideo.addEventListener('loadedmetadata', () => { bgVideo.playbackRate = 0.8; }, { once: true });
+      bgVideo.play().catch(() => {});
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) bgVideo.pause();
+        else bgVideo.play().catch(() => {});
+      });
+    }
+
+    // Topbar: trasparente su hero, solida dopo scroll
+    const topbar = document.querySelector('.topbar');
+    if (topbar) {
+      const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 10);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // Mobile nav (burger X + slide)
+    const burger = document.querySelector('.burger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    function closeMobileNav() {
+      if (!mobileNav || !burger) return;
+      burger.classList.remove('is-open');
+      mobileNav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      window.setTimeout(() => { mobileNav.hidden = true; }, 220);
+    }
+
+    function openMobileNav() {
+      if (!mobileNav || !burger) return;
+      mobileNav.hidden = false;
+      requestAnimationFrame(() => {
+        burger.classList.add('is-open');
+        mobileNav.classList.add('open');
+        burger.setAttribute('aria-expanded', 'true');
+      });
+    }
+
+    if (burger && mobileNav) {
+      mobileNav.hidden = true;
+      burger.classList.remove('is-open');
+      mobileNav.classList.remove('open');
+
+      burger.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.contains('open');
+        if (isOpen) closeMobileNav();
+        else openMobileNav();
+      });
+
+      mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeMobileNav());
+      });
+
+      // FIX: se passi da mobile a desktop, chiudi sempre il menu
+      const mq = window.matchMedia('(min-width: 761px)');
+      const mqHandler = (e) => { if (e.matches) closeMobileNav(); };
+      if (mq.addEventListener) mq.addEventListener('change', mqHandler);
+      else if (mq.addListener) mq.addListener(mqHandler);
+    }
+
+    // Formspree AJAX
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+
+    if (form && statusEl && submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.className = 'form-status';
+        statusEl.textContent = 'Invio in corso…';
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.reset();
+            statusEl.classList.add('ok');
+            statusEl.textContent = 'Richiesta inviata. Ti ricontattiamo entro 24/48h.';
+          } else {
+            const data = await res.json().catch(() => ({}));
+            statusEl.classList.add('err');
+            statusEl.textContent = data?.errors?.[0]?.message
+              ? `Errore: ${data.errors[0].message}`
+              : 'Errore nell’invio. Riprova o contattaci su WhatsApp.';
+          }
+        } catch (err) {
+          statusEl.classList.add('err');
+          statusEl.textContent = 'Connessione non riuscita. Riprova tra poco o contattaci su WhatsApp.';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
