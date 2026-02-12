@@ -1,0 +1,201 @@
+<!-- faq2.html -->
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FAQ — Immobile Protetto" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>FAQ — Immobile Protetto</title>
+
+  <link rel="stylesheet" href="faq2.css" />
+</head>
+
+<body>
+  <main class="page" role="main">
+    <section class="faq" aria-label="Domande frequenti">
+      <div class="faq__shell">
+        <!-- rail sinistra (desktop: sticky) -->
+        <aside class="rail" aria-label="Sezione FAQ">
+          <div class="rail__inner">
+            <div class="rail__title">FAQ</div>
+
+            <!-- Logo: cambia automaticamente con prefers-color-scheme -->
+            <picture class="rail__logo">
+              <source srcset="/logo/mark_dark.png" media="(prefers-color-scheme: light)">
+              <img src="/logo/mark_light.png" alt="Immobile Protetto" />
+            </picture>
+          </div>
+        </aside>
+
+        <!-- contenuto destra -->
+        <div class="stack" id="faqStack">
+          <!-- FAQ principali -->
+          <details class="item" open id="faq-1">
+            <summary class="q">
+              <span class="q__text">La registrazione e il sopralluogo sono davvero gratuiti?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                Sì. La registrazione e (se l'immobile è compatibile) il sopralluogo servono alla valutazione iniziale e non hanno costi.
+                Prima di qualsiasi passo successivo ti spieghiamo le condizioni in modo chiaro nella proposta.
+              </p>
+            </div>
+          </details>
+
+          <details class="item" id="faq-2">
+            <summary class="q">
+              <span class="q__text">Registrare l’immobile mi vincola in qualche modo?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                No. La registrazione serve a capire rapidamente se ha senso procedere con il sopralluogo. Puoi fermarti in qualsiasi momento.
+                Usiamo i dati solo per ricontatto e valutazione, come indicato nell’informativa privacy.
+              </p>
+            </div>
+          </details>
+
+          <details class="item" id="faq-3">
+            <summary class="q">
+              <span class="q__text">In che città siete operativi?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                In questa fase lavoriamo nelle province di Pescara e Chieti. Stiamo estendendo il servizio in altre città:
+                se sei fuori zona, puoi registrare lo stesso e ti ricontattiamo quando attiviamo la tua area.
+              </p>
+            </div>
+          </details>
+
+          <details class="item" id="faq-4">
+            <summary class="q">
+              <span class="q__text">Che tipo di immobili accettate?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                Appartamenti e case ad uso abitativo in buono stato. Valutiamo caso per caso: se è idoneo o servono piccoli interventi
+                te lo diciamo chiaramente e te li indichiamo, poi decidi tu.
+              </p>
+            </div>
+          </details>
+
+          <details class="item" id="faq-5">
+            <summary class="q">
+              <span class="q__text">Chi sono gli inquilini e come li selezionate?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                Gli inquilini sono dipendenti pubblici: verifichiamo identità, contratto di lavoro, reddito e nucleo familiare.
+                Il profilo finale viene scelto tenendo conto delle preferenze indicate in fase di registrazione.
+              </p>
+            </div>
+          </details>
+
+          <details class="item" id="faq-6">
+            <summary class="q">
+              <span class="q__text">Quanto tempo ci mettete a ricontattarmi?</span>
+              <span class="q__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="a">
+              <p>
+                Entro 1–2 giorni lavorativi ti rispondiamo via e-mail con esito (idoneo/non idoneo). Se idoneo, ti proponiamo
+                le prime disponibilità per il sopralluogo.
+              </p>
+            </div>
+          </details>
+
+          <!-- progressive disclosure: FAQ secondarie -->
+          <div class="more">
+            <button class="more__btn" type="button" id="moreBtn"
+                    aria-expanded="false" aria-controls="morePanel">
+              <span class="more__label">Approfondimenti</span>
+              <span class="more__meta">Mostra altre 3 domande</span>
+              <span class="more__chev" aria-hidden="true"></span>
+            </button>
+
+            <div class="more__panel" id="morePanel" hidden>
+              <div class="more__inner">
+                <!-- Sostituisci i testi qui sotto con le tue 3 FAQ secondarie -->
+                <details class="item item--sub" id="faq-7">
+                  <summary class="q">
+                    <span class="q__text">FAQ secondaria 1 — (sostituisci questo titolo)</span>
+                    <span class="q__icon" aria-hidden="true"></span>
+                  </summary>
+                  <div class="a">
+                    <p>Testo risposta — (sostituisci questo contenuto).</p>
+                  </div>
+                </details>
+
+                <details class="item item--sub" id="faq-8">
+                  <summary class="q">
+                    <span class="q__text">FAQ secondaria 2 — (sostituisci questo titolo)</span>
+                    <span class="q__icon" aria-hidden="true"></span>
+                  </summary>
+                  <div class="a">
+                    <p>Testo risposta — (sostituisci questo contenuto).</p>
+                  </div>
+                </details>
+
+                <details class="item item--sub" id="faq-9">
+                  <summary class="q">
+                    <span class="q__text">FAQ secondaria 3 — (sostituisci questo titolo)</span>
+                    <span class="q__icon" aria-hidden="true"></span>
+                  </summary>
+                  <div class="a">
+                    <p>Testo risposta — (sostituisci questo contenuto).</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      // Accordion: un solo <details> aperto alla volta (include le secondarie quando visibili)
+      const stack = document.getElementById('faqStack');
+      if (stack) {
+        stack.addEventListener('toggle', (e) => {
+          const d = e.target;
+          if (!(d instanceof HTMLDetailsElement) || !d.open) return;
+          stack.querySelectorAll('details.item[open]').forEach((other) => {
+            if (other !== d) other.removeAttribute('open');
+          });
+        }, true);
+      }
+
+      // Progressive disclosure: mostra/nasconde le FAQ secondarie
+      const btn = document.getElementById('moreBtn');
+      const panel = document.getElementById('morePanel');
+
+      const setMore = (open) => {
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) {
+          panel.hidden = false;
+          requestAnimationFrame(() => panel.classList.add('is-open'));
+        } else {
+          panel.classList.remove('is-open');
+          // chiudi eventuali <details> aperti dentro e poi nascondi
+          panel.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+          setTimeout(() => { panel.hidden = true; }, 200);
+        }
+      };
+
+      if (btn && panel) {
+        btn.addEventListener('click', () => {
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          setMore(!open);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

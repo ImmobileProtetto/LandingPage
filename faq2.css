@@ -1,0 +1,302 @@
+/* faq2.css */
+:root{
+  --bg0:#070b14;
+  --bg1:#0b1220;
+
+  --card: rgba(255,255,255,.06);
+  --card2: rgba(255,255,255,.085);
+  --line: rgba(255,255,255,.12);
+
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+
+  --accent: #7dd3fc;
+  --shadow: 0 18px 54px rgba(0,0,0,.42);
+  --shadow2: 0 10px 26px rgba(0,0,0,.26);
+
+  --r: 16px;
+  --r2: 12px;
+  --max: 1040px;
+
+  --rail: 128px; /* colonna sinistra “molto” piccola */
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg0:#f6f7fb;
+    --bg1:#ffffff;
+
+    --card: rgba(10,16,30,.045);
+    --card2: rgba(10,16,30,.07);
+    --line: rgba(10,16,30,.14);
+
+    --text: rgba(10,16,30,.92);
+    --muted: rgba(10,16,30,.68);
+
+    --shadow: 0 18px 54px rgba(10,16,30,.12);
+    --shadow2: 0 10px 26px rgba(10,16,30,.10);
+
+    color-scheme: light;
+  }
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: var(--text);
+  background:
+    radial-gradient(900px 480px at 12% 0%, rgba(125,211,252,.16), transparent 58%),
+    radial-gradient(900px 520px at 88% 10%, rgba(125,211,252,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+.page{
+  padding: clamp(22px, 4.5vw, 44px) 16px;
+}
+
+.faq{
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+}
+
+/* Desktop: due colonne. Mobile: stack */
+.faq__shell{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items:start;
+}
+
+@media (min-width: 980px){
+  .faq__shell{
+    grid-template-columns: var(--rail) 1fr;
+    gap: 18px;
+  }
+}
+
+/* Rail sinistra (sticky solo desktop) */
+.rail{
+  position: relative;
+}
+@media (min-width: 980px){
+  .rail{
+    position: sticky;
+    top: 22px; /* parte insieme al blocco FAQ e si ferma alla fine del contenitore */
+  }
+}
+
+.rail__inner{
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: linear-gradient(180deg, var(--card2), var(--card));
+  box-shadow: var(--shadow2);
+  padding: 14px 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 12px;
+}
+
+.rail__title{
+  font-weight: 950;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  text-align:center;
+}
+
+.rail__logo{
+  width: 52px;
+  height: 52px;
+  display:grid;
+  place-items:center;
+}
+.rail__logo img{
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display:block;
+}
+
+/* Stack destra */
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+/* FAQ item (pulito) */
+.item{
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: linear-gradient(180deg, var(--card2), var(--card));
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+
+.item--sub{
+  box-shadow: var(--shadow2);
+}
+
+.q{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 16px 16px;
+  user-select:none;
+}
+.q::-webkit-details-marker{ display:none; }
+
+.q__text{
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 1.35;
+  letter-spacing: .01em;
+}
+
+.q__icon{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--line), transparent 10%);
+  background: rgba(255,255,255,.04);
+  display:grid;
+  place-items:center;
+  flex: 0 0 auto;
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+  position:relative;
+}
+.q__icon::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: .85;
+}
+
+.item:hover .q__icon{
+  background: rgba(125,211,252,.10);
+  border-color: rgba(125,211,252,.22);
+}
+
+.item[open] .q__icon{
+  transform: rotate(180deg);
+  background: rgba(125,211,252,.12);
+  border-color: rgba(125,211,252,.24);
+}
+
+.a{
+  padding: 0 16px 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.item[open] .a{
+  animation: sweep .18s ease both;
+}
+@keyframes sweep{
+  from{ opacity: 0; transform: translateY(-6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Progressive disclosure “Approfondimenti” */
+.more{
+  margin-top: 6px;
+}
+
+.more__btn{
+  width: 100%;
+  border: 1px dashed color-mix(in oklab, var(--line), transparent 0%);
+  border-radius: var(--r);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow2);
+  padding: 14px 16px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  color: var(--text);
+}
+
+.more__label{
+  font-weight: 950;
+  letter-spacing: .02em;
+}
+
+.more__meta{
+  color: var(--muted);
+  font-weight: 850;
+  font-size: 13px;
+  margin-left:auto;
+}
+
+.more__chev{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  display:grid;
+  place-items:center;
+  flex: 0 0 auto;
+  transition: transform .18s ease;
+  position:relative;
+}
+.more__chev::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: .85;
+}
+
+.more__btn[aria-expanded="true"] .more__chev{
+  transform: rotate(180deg);
+}
+
+/* Panel reveal (pulito, senza “mappazzoni”) */
+.more__panel{
+  margin-top: 10px;
+  display:grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .2s ease, opacity .2s ease;
+  opacity: 0;
+}
+.more__panel.is-open{
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.more__inner{
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+/* Focus accessibile */
+:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(125,211,252,.20);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .q__icon, .more__chev{ transition:none; }
+  .item[open] .a{ animation:none; }
+  .more__panel{ transition:none; }
+}
