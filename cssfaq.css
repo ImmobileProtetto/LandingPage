@@ -1,0 +1,272 @@
+/* FAQ — stile “istituzionale moderno”, responsive, animazioni, accessibile
+   Nota: puoi incollare tutto in un file faq.css e linkarlo nel <head>.
+*/
+
+:root{
+  --bg: #0b1220;           /* navy profondo */
+  --panel: rgba(255,255,255,.06);
+  --panel-2: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.90);
+  --muted: rgba(255,255,255,.68);
+  --line: rgba(255,255,255,.14);
+  --accent: #7dd3fc;       /* azzurro istituzionale moderno */
+  --accent-2:#c7d2fe;      /* per riflessi secondari */
+  --shadow: 0 18px 60px rgba(0,0,0,.45);
+  --radius: 18px;
+  --radius-sm: 14px;
+  --max: 1100px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+.faq{
+  position: relative;
+  color: var(--text);
+  padding: clamp(42px, 6vw, 84px) 16px;
+  background: radial-gradient(1200px 700px at 10% 0%, rgba(125,211,252,.18), transparent 55%),
+              radial-gradient(900px 600px at 95% 10%, rgba(199,210,254,.16), transparent 55%),
+              linear-gradient(180deg, #070b14, var(--bg));
+  overflow: hidden;
+}
+
+/* fondo “premium” con grana/reticolo delicato */
+.faq__bg{
+  position:absolute; inset:-2px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(255,255,255,.06), transparent 45%),
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  opacity: .28;
+  pointer-events:none;
+  filter: blur(.1px);
+  mask-image: radial-gradient(circle at 50% 20%, black 55%, transparent 95%);
+}
+
+.faq__container{
+  position: relative;
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+}
+
+.faq__header{
+  text-align: left;
+  margin-bottom: clamp(18px, 3vw, 28px);
+  animation: faqFadeUp .7s ease both;
+}
+
+.faq__eyebrow{
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(255,255,255,.72);
+  margin: 0 0 10px 0;
+}
+
+.faq__title{
+  margin: 0 0 10px 0;
+  font-size: clamp(28px, 4.4vw, 44px);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.faq__subtitle{
+  margin: 0;
+  max-width: 70ch;
+  color: var(--muted);
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.55;
+}
+
+.faq__trust{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 10px 30px rgba(0,0,0,.22);
+  backdrop-filter: blur(10px);
+}
+
+.badge--soft{
+  background: rgba(125,211,252,.08);
+  border-color: rgba(125,211,252,.20);
+}
+
+.badge__dot{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, var(--accent));
+  box-shadow: 0 0 0 4px rgba(125,211,252,.15);
+}
+
+.badge__icon{
+  width: 18px; height: 18px;
+  display:inline-grid;
+  place-items:center;
+  border-radius: 6px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.badge__text{
+  font-size: 13px;
+  color: rgba(255,255,255,.82);
+  white-space: nowrap;
+}
+
+/* grid responsive */
+.faq__grid{
+  display:grid;
+  gap: 12px;
+  margin-top: 18px;
+  animation: faqFadeUp .8s ease .05s both;
+}
+
+@media (min-width: 900px){
+  .faq__grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+.faq-item{
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.faq-item::before{
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(125,211,252,.40), rgba(199,210,254,.22), rgba(255,255,255,0));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: .75;
+  pointer-events:none;
+}
+
+.faq-q{
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 18px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  user-select: none;
+  outline: none;
+}
+
+.faq-q::-webkit-details-marker{ display:none; }
+
+.faq-q__text{
+  font-size: 15.5px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.faq-q__icon{
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.86);
+  transition: transform .25s ease, background-color .25s ease, border-color .25s ease;
+}
+
+.faq-item:hover .faq-q__icon{
+  background: rgba(125,211,252,.10);
+  border-color: rgba(125,211,252,.22);
+}
+
+.faq-a{
+  padding: 0 18px 18px 18px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.6;
+  font-size: 14.5px;
+}
+
+/* separatore sottile tra domanda e risposta (solo quando aperto) */
+.faq-item[open] .faq-q{
+  padding-bottom: 14px;
+}
+
+.faq-item[open] .faq-q::after{
+  content:"";
+  display:block;
+  position:absolute;
+  left: 18px; right: 18px;
+  height: 1px;
+  top: 58px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+}
+
+.faq-item[open] .faq-q__icon{
+  transform: rotate(180deg);
+  background: rgba(125,211,252,.12);
+  border-color: rgba(125,211,252,.26);
+}
+
+/* animazione “sweep” quando si apre */
+.faq-item[open] .faq-a{
+  animation: faqSweep .28s ease both;
+}
+
+@keyframes faqSweep{
+  from{ opacity: 0; transform: translateY(-6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* focus accessibile */
+.faq-q:focus-visible{
+  box-shadow: 0 0 0 4px rgba(125,211,252,.18);
+  border-radius: var(--radius);
+}
+
+/* micro motion di ingresso */
+@keyframes faqFadeUp{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* footer nota */
+.faq__footer{
+  margin-top: 18px;
+  color: rgba(255,255,255,.58);
+  font-size: 12.5px;
+}
+
+/* riduzione animazioni se richiesto */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .faq__header, .faq__grid{ animation: none; }
+  .faq-item[open] .faq-a{ animation: none; }
+  .faq-q__icon{ transition: none; }
+}
