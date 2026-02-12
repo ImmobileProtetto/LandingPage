@@ -1,0 +1,493 @@
+<!-- indexfaq.html -->
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FAQ Immobile Protetto: registrazione, sopralluogo, città operative, tipologie immobili, selezione inquilini, tempi di risposta." />
+  <title>FAQ — Immobile Protetto</title>
+
+  <!-- CSS ESTERNO -->
+  <link rel="stylesheet" href="cssfaq2.css" />
+
+  <!-- (opzionale) colore barra browser mobile -->
+  <meta name="theme-color" content="#0b1220" />
+</head>
+
+<body>
+  <a class="skip" href="#faq">Salta al contenuto</a>
+
+  <!-- Topbar “istituzionale” -->
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <div class="brand__name">IMMOBILE PROTETTO</div>
+          <div class="brand__tag">Intermediazione immobiliare</div>
+        </div>
+      </div>
+
+      <nav class="topbar__nav" aria-label="Navigazione">
+        <a class="toplink" href="#" title="Torna al sito">Home</a>
+        <a class="toplink" href="#" title="Contatti">Contatti</a>
+        <button class="themebtn" type="button" id="themeToggle" aria-label="Cambia tema">
+          <span class="themebtn__dot" aria-hidden="true"></span>
+          <span class="themebtn__text">Tema</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" role="main">
+    <!-- HERO / “credibilità” + stepper -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow">FAQ • Trasparenza & processo</p>
+        <h1 class="h1">Domande frequenti, senza banalità.</h1>
+        <p class="lead">
+          Risposte sintetiche ma complete, con un flusso operativo chiaro e verifiche documentali.
+          Pensate per trasmettere fiducia senza risultare “piatte”.
+        </p>
+
+        <div class="trustrow" role="list" aria-label="Indicatori di affidabilità">
+          <div class="trust" role="listitem">
+            <span class="trust__kpi">0€</span>
+            <span class="trust__label">Registrazione & sopralluogo (se idoneo)</span>
+          </div>
+          <div class="trust" role="listitem">
+            <span class="trust__kpi">1–2</span>
+            <span class="trust__label">Giorni lavorativi per l’esito via e-mail</span>
+          </div>
+          <div class="trust" role="listitem">
+            <span class="trust__kpi">✔</span>
+            <span class="trust__label">Selezione inquilini con verifiche</span>
+          </div>
+        </div>
+
+        <div class="stepper" aria-label="Come funziona">
+          <div class="stepper__item">
+            <div class="stepper__dot" aria-hidden="true"></div>
+            <div class="stepper__txt">
+              <div class="stepper__t">1. Registrazione</div>
+              <div class="stepper__d">Dati minimi per ricontatto e prima valutazione</div>
+            </div>
+          </div>
+          <div class="stepper__line" aria-hidden="true"></div>
+          <div class="stepper__item">
+            <div class="stepper__dot" aria-hidden="true"></div>
+            <div class="stepper__txt">
+              <div class="stepper__t">2. Valutazione</div>
+              <div class="stepper__d">Esito idoneo/non idoneo entro 1–2 gg</div>
+            </div>
+          </div>
+          <div class="stepper__line" aria-hidden="true"></div>
+          <div class="stepper__item">
+            <div class="stepper__dot" aria-hidden="true"></div>
+            <div class="stepper__txt">
+              <div class="stepper__t">3. Sopralluogo</div>
+              <div class="stepper__d">Solo se compatibile, senza costi iniziali</div>
+            </div>
+          </div>
+          <div class="stepper__line" aria-hidden="true"></div>
+          <div class="stepper__item">
+            <div class="stepper__dot" aria-hidden="true"></div>
+            <div class="stepper__txt">
+              <div class="stepper__t">4. Proposta</div>
+              <div class="stepper__d">Condizioni chiare prima di procedere</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-label="Domande frequenti">
+      <div class="faq__inner">
+        <div class="faq__head">
+          <div>
+            <p class="faq__eyebrow">Supporto</p>
+            <h2 class="faq__title">FAQ</h2>
+            <p class="faq__subtitle">
+              Cerca tra le domande oppure esplora per categoria. Ogni risposta è pensata per essere chiara, verificabile e coerente con un servizio “istituzionale”.
+            </p>
+          </div>
+
+          <div class="faq__tools" role="group" aria-label="Strumenti FAQ">
+            <label class="search" for="faqSearch">
+              <span class="search__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <input id="faqSearch" class="search__input" type="search" placeholder="Cerca: “gratuito”, “città”, “inquilini”…"
+                     autocomplete="off" />
+              <span class="search__count" id="faqCount" aria-live="polite"></span>
+            </label>
+
+            <div class="btnrow">
+              <button class="btn btn--soft" type="button" id="expandAll">Espandi</button>
+              <button class="btn btn--soft" type="button" id="collapseAll">Comprimi</button>
+              <button class="btn" type="button" onclick="window.print()">Stampa</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chips" role="tablist" aria-label="Filtri categoria">
+          <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">Tutte</button>
+          <button class="chip" type="button" data-filter="costi" role="tab" aria-selected="false">Costi</button>
+          <button class="chip" type="button" data-filter="vincoli" role="tab" aria-selected="false">Vincoli</button>
+          <button class="chip" type="button" data-filter="copertura" role="tab" aria-selected="false">Copertura</button>
+          <button class="chip" type="button" data-filter="immobili" role="tab" aria-selected="false">Immobili</button>
+          <button class="chip" type="button" data-filter="inquilini" role="tab" aria-selected="false">Inquilini</button>
+          <button class="chip" type="button" data-filter="tempi" role="tab" aria-selected="false">Tempi</button>
+        </div>
+
+        <div class="faq__grid" id="faqGrid" data-accordion="true">
+          <!-- 1 -->
+          <article class="faqcard" data-tags="costi" id="faq-1">
+            <details class="faqitem" open>
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Costi</span>
+                <span class="faqitem__text">La registrazione e il sopralluogo sono davvero gratuiti?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  Sì. La registrazione e (se l’immobile è compatibile) il sopralluogo servono alla valutazione iniziale e non hanno costi.
+                  Prima di qualsiasi passo successivo ti spieghiamo le condizioni in modo chiaro nella proposta.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-1">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 2 -->
+          <article class="faqcard" data-tags="vincoli" id="faq-2">
+            <details class="faqitem">
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Vincoli</span>
+                <span class="faqitem__text">Registrare l’immobile mi vincola in qualche modo?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  No. La registrazione serve a capire rapidamente se ha senso procedere con il sopralluogo. Puoi fermarti in qualsiasi momento.
+                  Usiamo i dati solo per ricontatto e valutazione, come indicato nell’informativa privacy.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-2">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 3 -->
+          <article class="faqcard" data-tags="copertura" id="faq-3">
+            <details class="faqitem">
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Copertura</span>
+                <span class="faqitem__text">In che città siete operativi?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  In questa fase lavoriamo nelle province di Pescara e Chieti. Stiamo estendendo il servizio in altre città:
+                  se sei fuori zona, puoi registrare lo stesso e ti ricontattiamo quando attiviamo la tua area.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-3">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 4 -->
+          <article class="faqcard" data-tags="immobili" id="faq-4">
+            <details class="faqitem">
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Immobili</span>
+                <span class="faqitem__text">Che tipo di immobili accettate?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  Appartamenti e case ad uso abitativo in buono stato. Valutiamo caso per caso: se è idoneo o servono piccoli interventi
+                  te lo diciamo chiaramente e te li indichiamo, poi decidi tu.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-4">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 5 -->
+          <article class="faqcard" data-tags="inquilini" id="faq-5">
+            <details class="faqitem">
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Inquilini</span>
+                <span class="faqitem__text">Chi sono gli inquilini e come li selezionate?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  Gli inquilini sono dipendenti pubblici: verifichiamo identità, contratto di lavoro, reddito e nucleo familiare.
+                  Il profilo finale viene scelto tenendo conto delle preferenze indicate in fase di registrazione.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-5">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- 6 -->
+          <article class="faqcard" data-tags="tempi" id="faq-6">
+            <details class="faqitem">
+              <summary class="faqitem__q">
+                <span class="faqitem__meta">Tempi</span>
+                <span class="faqitem__text">Quanto tempo ci mettete a ricontattarmi?</span>
+                <span class="faqitem__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="faqitem__a">
+                <p>
+                  Entro 1–2 giorni lavorativi ti rispondiamo via e-mail con esito (idoneo/non idoneo). Se idoneo, ti proponiamo
+                  le prime disponibilità per il sopralluogo.
+                </p>
+                <div class="faqitem__actions">
+                  <button class="linkbtn" type="button" data-copy="#faq-6">Copia link</button>
+                </div>
+              </div>
+            </details>
+          </article>
+        </div>
+
+        <div class="noresults" id="noResults" hidden>
+          Nessun risultato. Prova con altre parole chiave o rimuovi i filtri.
+        </div>
+
+        <div class="cta">
+          <div class="cta__txt">
+            <div class="cta__t">Pronto a procedere?</div>
+            <div class="cta__d">Se vuoi, registra l’immobile: ricevi l’esito via e-mail entro 1–2 giorni lavorativi.</div>
+          </div>
+          <a class="btn btn--cta" href="#">Registra l’immobile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="foot__inner">
+      <div class="foot__left">
+        <div class="foot__brand">IMMOBILE PROTETTO</div>
+        <div class="foot__small">© <span id="y"></span> — Informazioni e FAQ</div>
+      </div>
+      <div class="foot__right">
+        <a class="foot__link" href="#">Privacy</a>
+        <a class="foot__link" href="#">Cookie</a>
+        <a class="foot__link" href="#">Termini</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    (() => {
+      // anno
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
+
+      // tema (salvato in localStorage)
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('faq-theme');
+      if (saved) root.dataset.theme = saved;
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const next = (root.dataset.theme === 'light') ? 'dark' : 'light';
+          root.dataset.theme = next;
+          localStorage.setItem('faq-theme', next);
+        });
+      }
+
+      // toast
+      const toast = document.getElementById('toast');
+      let toastT;
+      const showToast = (msg) => {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('is-on');
+        clearTimeout(toastT);
+        toastT = setTimeout(() => toast.classList.remove('is-on'), 1600);
+      };
+
+      // accordion: uno aperto alla volta
+      const grid = document.getElementById('faqGrid');
+      if (grid?.dataset.accordion === 'true') {
+        grid.addEventListener('toggle', (e) => {
+          const d = e.target;
+          if (!(d instanceof HTMLDetailsElement) || !d.open) return;
+          grid.querySelectorAll('details.faqitem[open]').forEach((other) => {
+            if (other !== d) other.removeAttribute('open');
+          });
+        }, true);
+      }
+
+      // expand/collapse
+      const expandAll = document.getElementById('expandAll');
+      const collapseAll = document.getElementById('collapseAll');
+      const allDetails = () => Array.from(document.querySelectorAll('details.faqitem'));
+
+      expandAll?.addEventListener('click', () => {
+        allDetails().forEach(d => d.setAttribute('open', ''));
+      });
+      collapseAll?.addEventListener('click', () => {
+        allDetails().forEach(d => d.removeAttribute('open'));
+      });
+
+      // filtri categoria
+      const chips = Array.from(document.querySelectorAll('.chip'));
+      let activeFilter = 'all';
+
+      const applyFilter = () => {
+        const q = (document.getElementById('faqSearch')?.value || '').trim().toLowerCase();
+        const cards = Array.from(document.querySelectorAll('.faqcard'));
+        let visible = 0;
+
+        // pulizia highlight precedente
+        cards.forEach(c => {
+          c.querySelectorAll('mark').forEach(m => m.replaceWith(m.textContent));
+        });
+
+        for (const card of cards) {
+          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+          const text = card.innerText.toLowerCase();
+
+          const passFilter = activeFilter === 'all' || tags.includes(activeFilter);
+          const passSearch = !q || text.includes(q);
+
+          const show = passFilter && passSearch;
+          card.hidden = !show;
+          if (show) {
+            visible++;
+
+            // highlight semplice
+            if (q) {
+              const qNodes = card.querySelectorAll('.faqitem__text, .faqitem__a p');
+              qNodes.forEach(node => {
+                const raw = node.textContent;
+                const idx = raw.toLowerCase().indexOf(q);
+                if (idx >= 0) {
+                  const before = raw.slice(0, idx);
+                  const mid = raw.slice(idx, idx + q.length);
+                  const after = raw.slice(idx + q.length);
+                  node.textContent = '';
+                  node.append(document.createTextNode(before));
+                  const mark = document.createElement('mark');
+                  mark.textContent = mid;
+                  node.append(mark);
+                  node.append(document.createTextNode(after));
+                }
+              });
+            }
+          }
+        }
+
+        const count = document.getElementById('faqCount');
+        if (count) count.textContent = visible ? `${visible}/6` : '';
+        const no = document.getElementById('noResults');
+        if (no) no.hidden = visible !== 0;
+      };
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => { c.classList.remove('is-active'); c.setAttribute('aria-selected', 'false'); });
+          chip.classList.add('is-active');
+          chip.setAttribute('aria-selected', 'true');
+          activeFilter = chip.dataset.filter || 'all';
+          applyFilter();
+        });
+      });
+
+      // ricerca
+      const search = document.getElementById('faqSearch');
+      search?.addEventListener('input', applyFilter);
+
+      // copy link
+      document.addEventListener('click', async (e) => {
+        const btn = e.target.closest('[data-copy]');
+        if (!btn) return;
+        const hash = btn.getAttribute('data-copy');
+        if (!hash) return;
+
+        const url = `${location.origin}${location.pathname}${hash}`;
+        try {
+          await navigator.clipboard.writeText(url);
+          showToast('Link copiato');
+          history.replaceState(null, '', hash);
+        } catch {
+          showToast('Copia non disponibile');
+        }
+      });
+
+      // reveal on scroll
+      const cards = document.querySelectorAll('.faqcard');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(en => {
+            if (en.isIntersecting) {
+              en.target.classList.add('is-inview');
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.14 });
+        cards.forEach(c => io.observe(c));
+      } else {
+        cards.forEach(c => c.classList.add('is-inview'));
+      }
+
+      // init
+      applyFilter();
+
+      // se arrivi con #faq-x, apri quel dettaglio
+      if (location.hash) {
+        const target = document.querySelector(location.hash + ' details');
+        if (target) target.setAttribute('open', '');
+      }
+    })();
+  </script>
+</body>
+</html>
