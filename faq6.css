@@ -1,0 +1,342 @@
+/* faq5.css */
+/* Tipografia & palette copiate da home4.css (adattate a questa pagina) */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+
+  --text: #0b1f3a;
+  --muted: #4b5f78;
+  --line: rgba(11, 31, 58, 0.12);
+  --shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --primary: #0f766e;
+  --primary-dark: #064e3b;
+  --primary-soft: rgba(15,118,110,0.12);
+
+  --r: 16px;
+  --max: 1120px;
+
+  --rail: 128px; /* NON cambiare larghezza mini-box */
+}
+
+
+a{ color: inherit; }
+
+.justify{ text-align: justify; text-justify: inter-word; }
+
+/* Tipografia "question" come in home4.css */
+.question{
+  font-size: clamp(18px, 2.0vw, 22px);
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page{
+  padding: clamp(22px, 4.5vw, 44px) 16px;
+}
+
+.faq{
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+}
+
+/* Desktop: due colonne. Mobile: stack */
+.faq__shell{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items:start;
+}
+@media (min-width: 980px){
+  .faq__shell{
+    grid-template-columns: var(--rail) 1fr;
+    gap: 18px;
+  }
+}
+
+/* ===== Rail sinistra ===== */
+.rail{ position: relative; }
+@media (min-width: 980px){
+  .rail{ position: sticky; top: 22px; }
+}
+
+.rail__inner{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+
+  /* box piccolo ma contenuti grandi */
+  padding: 10px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 10px;
+}
+
+/* più grande, in stile home4 (peso 600) */
+.rail__title{
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--text);
+  text-align:center;
+}
+
+/* logo grande: riempie il box, senza cambiare la larghezza del rail */
+.rail__logo{
+  width: 96px;
+  height: 96px;
+  display:grid;
+  place-items:center;
+}
+.rail__img{
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  display:block;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* ===== Stack destra ===== */
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+/* ===== FAQ item ===== */
+.item{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.item--sub{
+  box-shadow: var(--shadow);
+}
+
+/* summary */
+.q{
+  list-style:none;
+  cursor:pointer;
+  padding: 14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+
+  font-weight: 700;
+  color: var(--text);
+}
+.q::-webkit-details-marker{ display:none; }
+
+.q__text{
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+/* icona: più “home4-like” (pulita) */
+.q__icon{
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color: var(--muted);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+  position:relative;
+}
+.q__icon::before{
+  content:"";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  opacity: .95;
+}
+
+.item:hover .q__icon{
+  background: var(--primary-soft);
+  border-color: rgba(15,118,110,0.22);
+  color: var(--primary-dark);
+}
+.item[open] .q__icon{
+  transform: rotate(180deg);
+  background: var(--primary-soft);
+  border-color: rgba(15,118,110,0.22);
+  color: var(--primary-dark);
+}
+
+/* risposta: wrapper senza padding (padding dentro) */
+.a{ overflow:hidden; } /* necessario per animazione height (JS) */
+.a__inner{
+  padding: 0 16px 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.a__inner p{ margin:0; }
+
+/* ===== Progressive disclosure (approfondimenti) ===== */
+.more{ margin-top: 6px; }
+
+.more__btn{
+  width: 100%;
+  background: var(--card);
+  border: 1px solid rgba(15,118,110,0.22);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  position: relative;
+}
+.more__btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(11,31,58,0.10);
+  border-color: rgba(15,118,110,0.32);
+}
+.more__btn:active{ transform: translateY(-1px); }
+
+.more__label{
+  font-weight: 700;
+  color: var(--text);
+}
+.more__meta{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.more__chev{
+  position:absolute;
+  right:16px;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color: var(--muted);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+  position:relative;
+}
+.more__chev::before{
+  content:"";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.more__btn:hover .more__chev{
+  position:absolute;
+  right:16px;
+
+  background: var(--primary-soft);
+  border-color: rgba(15,118,110,0.22);
+  color: var(--primary-dark);
+}
+.more__btn[aria-expanded="true"] .more__chev{
+  position:absolute;
+  right:16px;
+
+  transform: rotate(180deg);
+  background: var(--primary-soft);
+  border-color: rgba(15,118,110,0.22);
+  color: var(--primary-dark);
+}
+
+/* reveal panel */
+.more__panel{
+  margin-top: 10px;
+  display:grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .2s ease, opacity .2s ease;
+  opacity: 0;
+}
+.more__panel.is-open{
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.more__inner{
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+/* Focus */
+:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Mobile rail: riga compatta, mantiene pulizia */
+@media (max-width: 979px){
+  .rail__inner{
+    flex-direction: row;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 12px;
+  }
+  .rail__title{ font-size: 18px; }
+  .rail__logo, .rail__img{ width: 56px; height: 56px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .q__icon, .more__chev, .more__btn{ transition:none; }
+  .more__panel{ transition:none; }
+}
+
+
+.q .question{ margin:0; }
+
+.more__btn .q__text{ text-align:center; }
+
+
+/* Desktop-only: q__icon come in faq4 (geometria), colori restano quelli attuali */
+@media (min-width: 980px){
+  .q__icon{
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+  .q__icon::before{
+    width: 10px;
+    height: 10px;
+  }
+}
