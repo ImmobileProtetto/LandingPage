@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Missione — Immobile Protetto" />
+  <meta name="theme-color" content="#0b1f3a" />
+  <title>Missione — Immobile Protetto</title>
+
+  <link rel="stylesheet" href="mission.css" />
+</head>
+
+<body>
+  <!-- velo fisso: mantiene “pulito” lo spazio sopra la topbar sticky su mobile -->
+  <div class="mobile-veil" aria-hidden="true"></div>
+
+  <main class="page" role="main">
+    <section class="mission" aria-label="Missione e contesto">
+      <div class="mission__shell">
+
+        <!-- rail sinistra (desktop: sticky) -->
+        <aside class="rail" aria-label="Missione">
+          <div class="rail__inner">
+            <h2 class="rail__title">Missione</h2>
+
+            <!-- sempre logo LIGHT (colorato) -->
+            <div class="rail__logo" aria-label="Immobile Protetto">
+              <img class="rail__img" src="logo/mark_light.png" alt="Immobile Protetto" loading="eager" decoding="async" />
+            </div>
+          </div>
+        </aside>
+
+        <!-- contenuto destra -->
+        <div class="stack">
+          <!-- Perché nasce -->
+          <article class="card" id="perche-nasce">
+            <h3 class="card__title">Perché nasce Immobile Protetto</h3>
+
+            <p class="muted justify">
+              In Italia esiste un paradosso: molte abitazioni non vengono abitate stabilmente, mentre per tante persone
+              il costo dell’affitto è diventato una delle spese più difficili da sostenere. Nel frattempo, lavoratori
+              essenziali come <strong>Forze dell’Ordine, insegnanti e personale sanitario</strong> si spostano spesso per servizio
+              e faticano a trovare soluzioni accessibili e affidabili.
+            </p>
+
+            <div class="stats" aria-label="Indicatori di contesto">
+              <div class="stat">
+                <p class="stat__num">~9,6 mln</p>
+                <p class="stat__txt muted">abitazioni non occupate da residenti (dato censuario)</p>
+              </div>
+              <div class="stat">
+                <p class="stat__num">44,3%</p>
+                <p class="stat__txt muted">indica l’affitto come spesa più problematica (ricerche nazionali)</p>
+              </div>
+              <div class="stat">
+                <p class="stat__num">≈60%</p>
+                <p class="stat__txt muted">segnala difficoltà ad arrivare a fine mese (ricerche nazionali)</p>
+              </div>
+            </div>
+
+            <p class="muted justify">
+              Da qui nasce Immobile Protetto: rimettere in circolo immobili oggi inutilizzati, con un modello di gestione chiaro
+              e orientato all’impatto sociale.
+            </p>
+
+            <p class="sources">
+              Fonti (da inserire con link nella landing): ISTAT (Censimento), Eurispes (Rapporto Italia), rassegna stampa nazionale sul caro-casa.
+            </p>
+
+            <div class="card__cta">
+              <a class="cta" href="#form">Registrazione gratuita: valuta il tuo immobile</a>
+            </div>
+          </article>
+
+          <!-- Missione -->
+          <article class="card" id="missione">
+            <h3 class="card__title">La nostra missione</h3>
+
+            <p class="muted justify">
+              Immobile Protetto nasce come progetto sociale con una missione semplice:
+              <strong>tutelare i proprietari</strong> e <strong>rendere più accessibile l’abitare</strong> per chi lavora nel pubblico.
+            </p>
+
+            <div class="cols" role="list">
+              <div class="col" role="listitem" aria-label="Per i proprietari">
+                <h4 class="col__title">Per i proprietari</h4>
+                <ul class="list">
+                  <li class="muted justify">Proteggere immobili non abitati da <strong>accessi indesiderati</strong>, degrado e inattività.</li>
+                  <li class="muted justify">Ridurre complessità e tempi: <strong>gestione ordinata</strong>, procedure chiare, referente unico.</li>
+                  <li class="muted justify">Mantenere l’immobile <strong>presidiato e tracciato</strong> (stato, consegne, regole, controlli).</li>
+                </ul>
+              </div>
+
+              <div class="col" role="listitem" aria-label="Per i dipendenti pubblici">
+                <h4 class="col__title">Per i dipendenti pubblici</h4>
+                <ul class="list">
+                  <li class="muted justify">Offrire alloggi con <strong>canoni calmierati e trasparenti</strong>, destinati esclusivamente a chi rientra nei requisiti.</li>
+                  <li class="muted justify">Facilitare l’accesso a soluzioni abitative più sostenibili, soprattutto in aree ad alta pressione abitativa.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="benefit" aria-label="Società Benefit">
+              <p class="benefit__title">Come Società Benefit</p>
+              <p class="muted justify benefit__txt">
+                Misuriamo e rendicontiamo l’impatto sociale generato: più abitazioni accessibili, maggiore stabilità per chi garantisce
+                servizi essenziali, riattivazione di immobili oggi inutilizzati.
+              </p>
+            </div>
+
+            <div class="card__cta">
+              <a class="cta cta--ghost" href="#come-funziona">Scopri come funziona la gestione</a>
+            </div>
+          </article>
+
+          <!-- Scopo -->
+          <article class="card" id="scopo">
+            <h3 class="card__title">Qual è il suo scopo?</h3>
+
+            <p class="muted justify">
+              Creare un equilibrio <strong>win–win–win</strong>, in pochi passaggi e con regole chiare:
+            </p>
+
+            <ul class="list list--big">
+              <li class="muted justify"><strong>Proprietario:</strong> immobile più protetto e gestione semplificata.</li>
+              <li class="muted justify"><strong>Dipendente pubblico:</strong> canone più sostenibile e accesso più trasparente.</li>
+              <li class="muted justify"><strong>Comunità:</strong> più abitazioni accessibili e supporto concreto a chi svolge servizi essenziali.</li>
+            </ul>
+
+            <div class="card__cta">
+              <a class="cta" href="#form">Registra il tuo immobile</a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
