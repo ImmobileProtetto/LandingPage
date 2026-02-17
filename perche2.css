@@ -1,0 +1,262 @@
+/* perche2.css
+   Sezione "Perché nasce" (v3) — aggiornamenti richiesti:
+   - Titolo con punto interrogativo
+   - Lead (sottotitolo) a piena larghezza (nessun max-width)
+   - Card centrale con sfondo verde
+   - Box "soluzione" bianco con titolo: "La nostra soluzione gratuita"
+   - Rimosso highlight su “chiaro” e “tutelato”
+   - Titolo indicatori: "INDICATORI DEL CONTESTO"
+   - Titoli box 2 e 3 aggiornati
+   - Tutto namespaced sotto .ip-perche2
+*/
+
+:root{
+  --ip2-bg: #f6f8fb;
+  --ip2-text: #0b1f3a;
+  --ip2-muted: #4b5f78;
+
+  --ip2-line: rgba(11, 31, 58, 0.12);
+  --ip2-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip2-primary: #0f766e;
+  --ip2-primary-dark: #064e3b;
+
+  --ip2-r: 16px;
+  --ip2-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche2-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip2-bg);
+  color: var(--ip2-text);
+}
+.ip-perche2-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche2{
+  width: min(var(--ip2-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche2 *{ box-sizing: border-box; }
+.ip-perche2 a{ color: inherit; text-decoration: none; }
+.ip-perche2 strong{ color: var(--ip2-text); }
+
+/* ===== Header centrato (lead full width) ===== */
+.ip-perche2__container{
+  display: grid;
+  gap: 12px;
+}
+.ip-perche2__head{
+  display: grid;
+  gap: 10px;
+  justify-items: stretch; /* lead a piena larghezza */
+}
+.ip-perche2__title{
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 780;
+  letter-spacing: -0.02em;
+  color: var(--ip2-text);
+}
+.ip-perche2__lead{
+  margin: 0;
+  width: 100%;
+  max-width: none; /* richiesto */
+  color: var(--ip2-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ===== Card centrale (verde) ===== */
+.ip-perche2__card{
+  background: var(--ip2-primary);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--ip2-r);
+  box-shadow: var(--ip2-shadow);
+  padding: 18px;
+}
+
+/* Titolo indicatori */
+.ip-perche2__subtitle{
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ===== 3 box (bianche) con numero cerchiato verde ===== */
+.ip-perche2__steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 860px){
+  .ip-perche2__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche2__step{
+  background: #fff;
+  border: 1px solid rgba(11,31,58,0.10);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 14px 14px 16px;
+  text-align: center;
+}
+
+.ip-perche2__n{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ip2-primary), var(--ip2-primary-dark));
+}
+
+.ip-perche2__stepTitle{
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--ip2-text);
+}
+
+.ip-perche2__stepText{
+  margin: 0;
+  color: var(--ip2-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ===== Soluzione (BIANCA) ===== */
+.ip-perche2__solution{
+  margin-top: 16px;
+  border-radius: 18px;
+  padding: 16px;
+  background: #fff; /* richiesto */
+  border: 1px solid rgba(11,31,58,0.10);
+  box-shadow: 0 14px 34px rgba(11,31,58,0.08);
+}
+
+.ip-perche2__solutionTitle{
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: clamp(18px, 2.1vw, 26px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--ip2-text);
+}
+
+.ip-perche2__tagline{
+  margin: 0 0 10px;
+  text-align: center;
+  color: var(--ip2-text);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 650;
+}
+
+.ip-perche2__solutionText{
+  margin: 0 auto;
+  max-width: 78ch;
+  color: var(--ip2-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.ip-perche2__chips{
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ip-perche2__chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(15,118,110,0.08);
+  border: 1px solid rgba(15,118,110,0.18);
+  color: var(--ip2-text);
+  font-weight: 750;
+  font-size: 12px;
+}
+
+/* CTA: verde come landing + emoji spunta */
+.ip-perche2__ctaRow{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+.ip-perche2__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--ip2-primary);
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  box-shadow: 0 12px 28px rgba(11,31,58,0.12);
+  border: 1px solid rgba(255,255,255,0.0);
+  transition: transform .12s ease, filter .12s ease;
+  text-align: center;
+}
+.ip-perche2__cta:hover{ filter: brightness(0.98); transform: translateY(-1px); }
+.ip-perche2__cta:active{ transform: translateY(0px); }
+
+/* ===== Fonti (leggibili su verde) ===== */
+.ip-perche2__sources{
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+}
+.ip-perche2__sourcesLabel{
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+.ip-perche2__dot{
+  margin: 0 6px;
+  opacity: 0.9;
+}
+.ip-perche2__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche2__sources a:hover{ color: #ffffff; }
+
+/* Focus accessibile */
+.ip-perche2 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.28);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ip-perche2__cta{ transition: none; }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .ip-perche2__card{ padding: 16px; }
+  .ip-perche2__step{ padding: 12px 12px 14px; }
+}
