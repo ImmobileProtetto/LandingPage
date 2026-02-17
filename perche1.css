@@ -1,0 +1,266 @@
+/* perche1.css
+   Sezione "Perché nasce" (v2) — coerente con home7.css (index7).
+   - CSS completamente namespaced sotto .ip-perche1 per evitare conflitti.
+   - I colori riprendono home7.css: primary #0f766e, primary-dark #064e3b.
+*/
+
+:root{
+  --ip1-bg: #f6f8fb;
+  --ip1-card: #ffffff;
+
+  --ip1-text: #0b1f3a;
+  --ip1-muted: #4b5f78;
+
+  --ip1-line: rgba(11, 31, 58, 0.12);
+  --ip1-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip1-primary: #0f766e;      /* come home7.css */
+  --ip1-primary-dark: #064e3b; /* come home7.css */
+
+  --ip1-r: 16px;
+  --ip1-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche1-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip1-bg);
+  color: var(--ip1-text);
+}
+.ip-perche1-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche1{
+  width: min(var(--ip1-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche1 *{ box-sizing: border-box; }
+.ip-perche1 a{ color: inherit; text-decoration: none; }
+.ip-perche1 strong{ color: var(--ip1-text); }
+
+.ip-perche1__container{
+  display: grid;
+  gap: 12px;
+}
+
+/* ===== Header centrato (no logo) ===== */
+.ip-perche1__head{
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+.ip-perche1__title{
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--ip1-text);
+}
+.ip-perche1__lead{
+  margin: 0;
+  max-width: 72ch;
+  color: var(--ip1-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ===== Card principale ===== */
+.ip-perche1__card{
+  background: var(--ip1-card);
+  border: 1px solid var(--ip1-line);
+  border-radius: var(--ip1-r);
+  box-shadow: var(--ip1-shadow);
+  padding: 18px;
+}
+
+.ip-perche1__subtitle{
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip1-text);
+}
+
+/* ===== 3 box (bianche) con numero cerchiato verde ===== */
+.ip-perche1__steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 860px){
+  .ip-perche1__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche1__step{
+  background: #fff; /* richiesto: box bianche */
+  border: 1px solid var(--ip1-line);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 14px 14px 16px;
+  text-align: center; /* richiesto: contenuto centrato */
+}
+
+.ip-perche1__n{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ip1-primary), var(--ip1-primary-dark)); /* come how-n */
+}
+
+.ip-perche1__stepTitle{
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip1-text);
+}
+
+.ip-perche1__stepText{
+  margin: 0;
+  color: var(--ip1-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ===== Soluzione: blocco ad alto impatto ===== */
+.ip-perche1__solution{
+  margin-top: 16px;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(15,118,110,0.28);
+  background:
+    radial-gradient(1200px 240px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 60%),
+    rgba(15,118,110,0.06);
+}
+
+.ip-perche1__solutionKicker{
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--ip1-primary-dark);
+  text-align: center;
+}
+
+.ip-perche1__solutionTitle{
+  margin: 0 0 8px;
+  font-size: clamp(18px, 2.1vw, 26px);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  color: var(--ip1-text);
+  text-align: center;
+}
+
+.ip-perche1__hl{
+  background: linear-gradient(135deg, rgba(15,118,110,0.18), rgba(15,118,110,0.10));
+  padding: 0 6px;
+  border-radius: 8px;
+}
+
+.ip-perche1__solutionText{
+  margin: 0 auto;
+  max-width: 78ch;
+  color: var(--ip1-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.ip-perche1__chips{
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ip-perche1__chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(15,118,110,0.18);
+  color: var(--ip1-text);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* CTA: sfondo verde come landing + emoji spunta */
+.ip-perche1__ctaRow{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+.ip-perche1__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--ip1-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: var(--ip1-shadow);
+  border: 1px solid rgba(255,255,255,0.0);
+  transition: transform .12s ease, filter .12s ease;
+  text-align: center;
+}
+.ip-perche1__cta:hover{ filter: brightness(0.98); transform: translateY(-1px); }
+.ip-perche1__cta:active{ transform: translateY(0px); }
+
+/* ===== Fonti ===== */
+.ip-perche1__sources{
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75, 95, 120, 0.95);
+  text-align: center;
+}
+.ip-perche1__sourcesLabel{
+  font-weight: 800;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche1__dot{
+  margin: 0 6px;
+  opacity: 0.8;
+}
+.ip-perche1__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche1__sources a:hover{ color: var(--ip1-primary-dark); }
+
+/* Focus accessibile */
+.ip-perche1 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ip-perche1__cta{ transition: none; }
+}
+
+/* Mobile: micro spaziatura */
+@media (max-width: 480px){
+  .ip-perche1__card{ padding: 16px; }
+  .ip-perche1__step{ padding: 12px 12px 14px; }
+}
