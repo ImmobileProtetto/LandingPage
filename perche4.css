@@ -1,0 +1,181 @@
+/* perche4.css
+   perche3 senza box "La nostra risposta", con layout pulito e centrato.
+   Tutto namespaced sotto .ip-perche4 per evitare conflitti.
+*/
+
+:root{
+  --ip4-bg: #f6f8fb;
+  --ip4-card: #ffffff;
+
+  --ip4-text: #0b1f3a;
+  --ip4-muted: #4b5f78;
+
+  --ip4-line: rgba(11, 31, 58, 0.12);
+  --ip4-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip4-primary: #0f766e;
+  --ip4-primary-dark: #064e3b;
+
+  --ip4-r: 16px;
+  --ip4-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche4-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip4-bg);
+  color: var(--ip4-text);
+}
+.ip-perche4-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche4{
+  width: min(var(--ip4-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche4 *{ box-sizing: border-box; }
+.ip-perche4 a{ color: inherit; text-decoration: none; }
+.ip-perche4 strong{ color: var(--ip4-text); }
+
+.ip-perche4__container{
+  display: grid;
+  gap: 12px;
+}
+
+/* ===== Header centrato (lead full width) ===== */
+.ip-perche4__head{
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: stretch;
+}
+.ip-perche4__title{
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--ip4-text);
+}
+.ip-perche4__lead{
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  color: var(--ip4-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ===== Card principale (contenuti centrati) ===== */
+.ip-perche4__card{
+  background: var(--ip4-card);
+  border: 1px solid var(--ip4-line);
+  border-radius: var(--ip4-r);
+  box-shadow: var(--ip4-shadow);
+  padding: 18px;
+
+  /* centra “bene” ciò che resta (senza alterare le cards interne) */
+  display: grid;
+  gap: 12px;
+}
+
+.ip-perche4__subtitle{
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--ip4-text);
+}
+
+/* ===== 3 box (bianche) con numero cerchiato verde ===== */
+.ip-perche4__steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 860px){
+  .ip-perche4__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche4__step{
+  background: #fff;
+  border: 1px solid var(--ip4-line);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 14px 14px 16px;
+  text-align: center;
+}
+
+.ip-perche4__n{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ip4-primary), var(--ip4-primary-dark));
+}
+
+.ip-perche4__stepTitle{
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip4-text);
+}
+
+.ip-perche4__stepText{
+  margin: 0;
+  color: var(--ip4-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ===== Fonti ===== */
+.ip-perche4__sources{
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75, 95, 120, 0.95);
+  text-align: center;
+}
+.ip-perche4__sourcesLabel{
+  font-weight: 800;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche4__dot{
+  margin: 0 6px;
+  opacity: 0.8;
+}
+.ip-perche4__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche4__sources a:hover{ color: var(--ip4-primary-dark); }
+
+/* Focus accessibile */
+.ip-perche4 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto; }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .ip-perche4__card{ padding: 16px; }
+  .ip-perche4__step{ padding: 12px 12px 14px; }
+}
