@@ -1,0 +1,225 @@
+/* perche.css
+   Sezione "Perché nasce" pronta da inserire in index7, con stile coerente e CSS completamente namespaced.
+   - Tutte le regole sono sotto .ip-perche per evitare conflitti con la landing.
+   - Gli stili globali sono applicati SOLO se <body class="ip-perche-standalone"> è presente.
+*/
+
+:root{
+  --ip-bg: #f6f8fb;
+  --ip-card: #ffffff;
+
+  --ip-text: #0b1f3a;
+  --ip-muted: #4b5f78;
+
+  --ip-line: rgba(11, 31, 58, 0.12);
+  --ip-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip-primary: #0f766e;
+  --ip-primary-dark: #064e3b;
+  --ip-primary-soft: rgba(15,118,110,0.12);
+
+  --ip-r: 16px;
+  --ip-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip-bg);
+  color: var(--ip-text);
+}
+.ip-perche-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche{
+  width: min(var(--ip-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche *{ box-sizing: border-box; }
+.ip-perche a{ color: inherit; text-decoration: none; }
+
+.ip-perche__container{
+  display: grid;
+  gap: 12px;
+}
+
+/* Header: logo + titolo + lead */
+.ip-perche__head{
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+@media (min-width: 860px){
+  .ip-perche__head{
+    grid-template-columns: 72px 1fr;
+    gap: 14px;
+  }
+}
+
+.ip-perche__brand{
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 860px){
+  .ip-perche__brand{ width: 72px; height: 72px; }
+}
+.ip-perche__logo{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+@media (min-width: 860px){
+  .ip-perche__logo{ width: 72px; height: 72px; }
+}
+
+.ip-perche__title{
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ip-text);
+}
+.ip-perche__lead{
+  margin: 0;
+  color: var(--ip-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.ip-perche strong{ color: var(--ip-text); }
+
+/* Card principale */
+.ip-perche__card{
+  background: var(--ip-card);
+  border: 1px solid var(--ip-line);
+  border-radius: var(--ip-r);
+  box-shadow: var(--ip-shadow);
+  padding: 16px;
+}
+
+.ip-perche__subtitle{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ip-text);
+}
+
+/* Metriche (3 blocchi) */
+.ip-perche__metrics{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 10px 0 12px;
+}
+@media (min-width: 760px){
+  .ip-perche__metrics{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche__metric{
+  border: 1px solid rgba(15,118,110,0.22);
+  background: rgba(15,118,110,0.06);
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 92px;
+}
+.ip-perche__metricNum{
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip-text);
+}
+.ip-perche__metricTxt{
+  margin: 0;
+  color: var(--ip-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Chiusura */
+.ip-perche__close{
+  margin: 10px 0 0;
+  color: var(--ip-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Fonti */
+.ip-perche__sources{
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche__sourcesLabel{
+  font-weight: 700;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche__dot{
+  margin: 0 6px;
+  opacity: 0.8;
+}
+.ip-perche__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche__sources a:hover{
+  color: var(--ip-primary-dark);
+}
+
+/* CTA piccola sotto sezione */
+.ip-perche__ctaRow{
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+.ip-perche__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,118,110,0.35);
+  background: rgba(15,118,110,0.12);
+  color: var(--ip-primary-dark);
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1.1;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background-color .16s ease;
+}
+.ip-perche__cta:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(11,31,58,0.10);
+  border-color: rgba(15,118,110,0.45);
+  background: rgba(15,118,110,0.16);
+}
+.ip-perche__cta:active{ transform: translateY(-1px); }
+
+/* Focus accessibile */
+.ip-perche :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ip-perche__cta{ transition: none; }
+}
