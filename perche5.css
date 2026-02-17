@@ -1,0 +1,186 @@
+/* perche5.css
+   perche4 con:
+   - sfondo card "Indicatori del contesto" uguale al vecchio box soluzione (verde soft)
+   - più spazio tra titolo e sottotitolo (header vs card)
+   - più respiro tra sottotitolo / box e contenuti, per riempire e centrare meglio
+   Tutto namespaced sotto .ip-perche5
+*/
+
+:root{
+  --ip5-bg: #f6f8fb;
+  --ip5-card: #ffffff;
+
+  --ip5-text: #0b1f3a;
+  --ip5-muted: #4b5f78;
+
+  --ip5-line: rgba(11, 31, 58, 0.12);
+  --ip5-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip5-primary: #0f766e;
+  --ip5-primary-dark: #064e3b;
+
+  --ip5-r: 16px;
+  --ip5-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche5-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip5-bg);
+  color: var(--ip5-text);
+}
+.ip-perche5-page{
+  padding: clamp(22px, 4.8vw, 52px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche5{
+  width: min(var(--ip5-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche5 *{ box-sizing: border-box; }
+.ip-perche5 a{ color: inherit; text-decoration: none; }
+.ip-perche5 strong{ color: var(--ip5-text); }
+
+.ip-perche5__container{
+  display: grid;
+  gap: 22px; /* più spazio tra titolo/lead e card (titolo vs sottotitolo) */
+}
+
+/* ===== Header centrato (lead full width) ===== */
+.ip-perche5__head{
+  text-align: center;
+  display: grid;
+  gap: 14px; /* più respiro tra titolo e lead */
+  justify-items: stretch;
+}
+.ip-perche5__title{
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--ip5-text);
+}
+.ip-perche5__lead{
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  color: var(--ip5-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ===== Card "Indicatori" (verde soft come vecchia soluzione) ===== */
+.ip-perche5__card{
+  border-radius: var(--ip5-r);
+  padding: 24px;              /* più aria */
+  display: grid;
+  gap: 18px;                  /* più spazio tra sottotitolo, box e fonti */
+
+  border: 1px solid rgba(15,118,110,0.28);
+  box-shadow: 0 14px 34px rgba(11,31,58,0.08);
+  background:
+    radial-gradient(1200px 240px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 60%),
+    rgba(15,118,110,0.06);
+}
+
+.ip-perche5__subtitle{
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--ip5-text);
+}
+
+/* ===== 3 box (bianche) con numero cerchiato verde ===== */
+.ip-perche5__steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px; /* più distanza tra box */
+}
+@media (min-width: 860px){
+  .ip-perche5__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche5__step{
+  background: #fff;
+  border: 1px solid rgba(11,31,58,0.10);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 18px 14px 18px; /* più “pieno” */
+  text-align: center;
+}
+
+.ip-perche5__n{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ip5-primary), var(--ip5-primary-dark));
+}
+
+.ip-perche5__stepTitle{
+  margin: 0 0 10px; /* più distacco dal testo */
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip5-text);
+}
+
+.ip-perche5__stepText{
+  margin: 0;
+  color: var(--ip5-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ===== Fonti ===== */
+.ip-perche5__sources{
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75, 95, 120, 0.95);
+  text-align: center;
+}
+.ip-perche5__sourcesLabel{
+  font-weight: 800;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche5__dot{
+  margin: 0 6px;
+  opacity: 0.8;
+}
+.ip-perche5__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche5__sources a:hover{ color: var(--ip5-primary-dark); }
+
+/* Focus accessibile */
+.ip-perche5 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto; }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .ip-perche5__container{ gap: 18px; }
+  .ip-perche5__card{ padding: 18px; gap: 16px; }
+  .ip-perche5__step{ padding: 16px 12px; }
+}
