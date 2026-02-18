@@ -1,0 +1,374 @@
+/* perche3.css
+   Derivato da perche1.* con modifiche richieste:
+   - Titolo con punto interrogativo
+   - Lead (sottotitolo) full-width (nessun max-width; allineato alla card)
+   - Subtitle: "INDICATORI DEL CONTESTO"
+   - Titolo box 2: "Vulnerabilità economica"
+   - Titolo box 3: "Affitto insostenibile"
+   - Rimosso highlight su “chiaro” e “tutelato”
+   - Rimossi i 3 chip (tutela/gestione/impatto)
+   - Tutto namespaced sotto .ip-perche3
+*/
+
+:root{
+  --ip3-bg: #f6f8fb;
+  --ip3-card: #ffffff;
+
+  --ip3-text: #0b1f3a;
+  --ip3-muted: #4b5f78;
+
+  --ip3-line: rgba(11, 31, 58, 0.12);
+  --ip3-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip3-primary: #0f766e;
+  --ip3-primary-dark: #064e3b;
+
+  --ip3-r: 16px;
+  --ip3-max: 1120px;
+}
+
+/* ===== Standalone preview (non influenza la landing) ===== */
+body.ip-perche3-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ip3-bg);
+  color: var(--ip3-text);
+}
+.ip-perche3-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+/* ===== Sezione ===== */
+.ip-perche3{
+  width: min(var(--ip3-max), 100%);
+  margin: 0 auto;
+}
+.ip-perche3 *{ box-sizing: border-box; }
+.ip-perche3 a{ color: inherit; text-decoration: none; }
+.ip-perche3 strong{ color: var(--ip3-text); }
+
+.ip-perche3__container{
+  display: grid;
+  gap: 12px;
+}
+
+/* ===== Header centrato (lead full width) ===== */
+.ip-perche3__head{
+  text-align: center;
+  display: grid;
+  gap: 10px;
+  justify-items: stretch;
+}
+.ip-perche3__title{
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--ip3-text);
+}
+.ip-perche3__lead{
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  color: var(--ip3-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* ===== Card principale ===== */
+.ip-perche3__card{
+  background: var(--ip3-card);
+  border: 1px solid var(--ip3-line);
+  border-radius: var(--ip3-r);
+  box-shadow: var(--ip3-shadow);
+  padding: 18px;
+}
+
+.ip-perche3__subtitle{
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--ip3-text);
+}
+
+/* ===== 3 box (bianche) con numero cerchiato verde ===== */
+.ip-perche3__steps{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 860px){
+  .ip-perche3__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche3__step{
+  background: #fff;
+  border: 1px solid var(--ip3-line);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 14px 14px 16px;
+  text-align: center;
+}
+
+.ip-perche3__n{
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ip3-primary), var(--ip3-primary-dark));
+}
+
+.ip-perche3__stepTitle{
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip3-text);
+}
+
+.ip-perche3__stepText{
+  margin: 0;
+  color: var(--ip3-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ===== Soluzione: blocco ad alto impatto ===== */
+.ip-perche3__solution{
+  margin-top: 16px;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(15,118,110,0.28);
+  background:
+    radial-gradient(1200px 240px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 60%),
+    rgba(15,118,110,0.06);
+}
+
+.ip-perche3__solutionKicker{
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--ip3-primary-dark);
+  text-align: center;
+}
+
+.ip-perche3__solutionTitle{
+  margin: 0 0 8px;
+  font-size: clamp(18px, 2.1vw, 26px);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  color: var(--ip3-text);
+  text-align: center;
+}
+
+.ip-perche3__solutionText{
+  margin: 0 auto;
+  max-width: 78ch;
+  color: var(--ip3-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* CTA */
+.ip-perche3__ctaRow{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+.ip-perche3__cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--ip3-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: var(--ip3-shadow);
+  border: 1px solid rgba(255,255,255,0.0);
+  transition: transform .12s ease, filter .12s ease;
+  text-align: center;
+}
+.ip-perche3__cta:hover{ filter: brightness(0.98); transform: translateY(-1px); }
+.ip-perche3__cta:active{ transform: translateY(0px); }
+
+/* ===== Fonti ===== */
+.ip-perche3__sources{
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75, 95, 120, 0.95);
+  text-align: center;
+}
+.ip-perche3__sourcesLabel{
+  font-weight: 800;
+  color: rgba(75, 95, 120, 0.95);
+}
+.ip-perche3__dot{
+  margin: 0 6px;
+  opacity: 0.8;
+}
+.ip-perche3__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ip-perche3__sources a:hover{ color: var(--ip3-primary-dark); }
+
+/* Focus accessibile */
+.ip-perche3 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .ip-perche3__cta{ transition: none; }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .ip-perche3__card{ padding: 16px; }
+  .ip-perche3__step{ padding: 12px 12px 14px; }
+}
+
+/* ===== Solution bullets (perche7) ===== */
+.ip-perche3__solutionBody{
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.ip-perche3__bullets{
+  margin: 0;
+  padding-left: 18px;
+  max-width: 78ch;
+  color: var(--ip3-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.ip-perche3__bullets li{
+  margin: 6px 0;
+}
+
+.ip-perche3__solutionText--strong{
+  font-weight: 800;
+  color: var(--ip3-text);
+}
+
+/* ===== perche8 tweaks: bullets centered + stronger intro/closing ===== */
+.ip-perche3__solutionBody{
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+/* Intro line "Immobile Protetto nasce per:" */
+.ip-perche3__solutionBody > .ip-perche3__solutionText{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #111111;
+  font-weight: 850;
+  text-align: center;
+}
+
+/* Bullet list: perfectly centered */
+.ip-perche3__bullets{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 78ch;
+  display: grid;
+  gap: 8px;
+}
+
+.ip-perche3__bullets li{
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  color: var(--ip3-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.ip-perche3__bullets li::before{
+  content: "•";
+  font-weight: 900;
+  line-height: 1.2;
+  margin-top: 2px;
+  color: #111111;
+}
+
+/* Closing line: bigger + black, and bold only on win-win-win */
+.ip-perche3__solutionText--strong{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #111111;
+  font-weight: 800;
+  text-align: center;
+}
+
+.ip-perche3__solutionText--strong strong{
+  font-weight: 950;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 480px){
+  .ip-perche3__solutionBody > .ip-perche3__solutionText{ font-size: 15px; }
+  .ip-perche3__solutionText--strong{ font-size: 15px; }
+}
+
+/* ===== perche9 tweaks: centered bullets + slightly larger text ===== */
+
+/* Make the bullet list sit centered within the box */
+.ip-perche3__bullets{
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* centers the whole list block */
+  justify-content: center;
+  gap: 10px;
+  max-width: 78ch;
+  margin: 0 auto;
+}
+
+/* Center each bullet line perfectly */
+.ip-perche3__bullets li{
+  width: 100%;
+  max-width: 72ch;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;         /* slightly larger */
+  line-height: 1.75;
+}
+
+/* Slightly larger + black intro and closing lines */
+.ip-perche3__solutionBody > .ip-perche3__solutionText{
+  font-size: 17px;
+  color: #000000;
+}
+
+.ip-perche3__solutionText--strong{
+  font-size: 17px;
+  color: #000000;
+}
