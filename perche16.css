@@ -1,0 +1,389 @@
+/* perche13.css
+   Basato su perche11.* con stile tipografico/allineamenti ispirati a index7 (home4.css).
+   Requisiti applicati:
+   - Font Inter come index7
+   - Lead: "affidabili e vicine al lavoro"
+   - Owner hook NON bold
+   - Testi nelle card giustificati
+   - Elenco <li> allineato a sinistra + lieve rientro su desktop
+   - Card dinamiche (hover) come landing
+   - Fonti compatte stile [1][2][3]
+   - Titolo box finale senza spazio prima dei ":" e senza a capo su desktop; su mobile wrap naturale (come perche11)
+   - Sostituiti tutti i “—” con “-”
+*/
+
+:root{
+  --ip3-bg: #f6f8fb;
+  --ip3-card: #ffffff;
+
+  --ip3-text: #0b1f3a;
+  --ip3-muted: #4b5f78;
+
+  --ip3-line: rgba(11, 31, 58, 0.12);
+  --ip3-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+
+  --ip3-primary: #0f766e;
+  --ip3-primary-dark: #064e3b;
+
+  --ip3-r: 16px;
+  --ip3-max: 1120px;
+
+  --ip3-metric-bg: rgba(15,118,110,0.10);
+  --ip3-metric-br: rgba(15,118,110,0.22);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body.ip-perche3-standalone{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  background: var(--ip3-bg);
+  color: var(--ip3-text);
+}
+
+.ip-perche3-page{
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+.ip-perche3{
+  width: min(var(--ip3-max), 100%);
+  margin: 0 auto;
+}
+
+.ip-perche3 a{ color: inherit; text-decoration:none; }
+.ip-perche3 strong{ color: var(--ip3-text); }
+
+.ip-perche3__container{
+  display:grid;
+  gap: 12px;
+}
+
+/* ===== Header ===== */
+.ip-perche3__head{
+  text-align:center;
+  display:grid;
+  gap: 10px;
+  justify-items: stretch;
+}
+
+.ip-perche3__title{
+  margin: 0 0 2px;
+  font-size: clamp(26px, 3vw, 40px); /* come h2 di home4 */
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--ip3-text);
+}
+
+.ip-perche3__lead{
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  color: var(--ip3-muted);
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.ip-perche3__ownerHook{
+  color: var(--ip3-muted);
+  font-weight: 400;
+}
+
+/* ===== Card wrapper ===== */
+.ip-perche3__card{
+  background: var(--ip3-card);
+  border: 1px solid var(--ip3-line);
+  border-radius: var(--ip3-r);
+  box-shadow: var(--ip3-shadow);
+  padding: 18px;
+}
+
+.ip-perche3__subtitle{
+  margin: 0 0 12px;
+  text-align:center;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--ip3-text);
+}
+
+/* ===== Indicator cards ===== */
+.ip-perche3__steps{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 860px){
+  .ip-perche3__steps{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.ip-perche3__step{
+  background: #fff;
+  border: 1px solid var(--ip3-line);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(11,31,58,0.06);
+  padding: 14px 14px 16px;
+  text-align:center;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.ip-perche3__step:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(11,31,58,0.10);
+}
+
+.ip-perche3__n{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+  color:#fff;
+  background: linear-gradient(135deg, var(--ip3-primary), var(--ip3-primary-dark));
+  box-shadow: 0 8px 18px rgba(6,78,59,0.18);
+}
+
+.ip-perche3__stepTitle{
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ip3-text);
+}
+
+/* richiesto: giustificato dentro alle card */
+.ip-perche3__stepText{
+  margin: 0;
+  color: var(--ip3-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* Numeri evidenziati */
+.ip-perche3__metric{
+  display:inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--ip3-metric-bg);
+  border: 1px solid var(--ip3-metric-br);
+  color: var(--ip3-text);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Solution box ===== */
+.ip-perche3__solution{
+  margin-top: 16px;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(15,118,110,0.28);
+  background:
+    radial-gradient(1200px 240px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 60%),
+    rgba(15,118,110,0.06);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.ip-perche3__solution:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(11,31,58,0.10);
+}
+
+.ip-perche3__solutionKicker{
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--ip3-primary-dark);
+  text-align: center;
+}
+
+/* Come INDICATORI DEL CONTESTO */
+.ip-perche3__solutionTitle{
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ip3-text);
+}
+
+.ip-perche3__solutionBody{
+  display:grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.ip-perche3__solutionBody > .ip-perche3__solutionText{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #000;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Elenco a sinistra (premium) */
+.ip-perche3__bullets{
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 72ch;
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.ip-perche3__bullets li{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  color: var(--ip3-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.ip-perche3__bullets li::before{
+  content: "✓";
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--ip3-primary), var(--ip3-primary-dark));
+  color: #fff;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 2px;
+  box-shadow: 0 8px 18px rgba(6,78,59,0.18);
+}
+
+/* Micro-ancora credibilità */
+.ip-perche3__micro{
+  margin: 0;
+  max-width: 78ch;
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: center;
+  color: rgba(75,95,120,0.95);
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+.ip-perche3__micro span{
+  font-weight: 650;
+  color: rgba(11,31,58,0.92);
+}
+
+/* Closing line: solo WIN-WIN-WIN bold */
+.ip-perche3__solutionText--strong{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  font-weight: 400;
+  text-align: center;
+}
+.ip-perche3__solutionText--strong strong{
+  font-weight: 900;
+}
+
+/* ===== Fonti: compatte stile [1] ===== */
+.ip-perche3__sources{
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(75,95,120,0.95);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap; /* desktop: non andare a capo */
+}
+.ip-perche3__sourcesLabel{ font-weight: 800; }
+.ip-perche3__dot{ opacity: 0.8; }
+.ip-perche3__sources sup{ font-size: 11px; vertical-align: top; }
+.ip-perche3__sources a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.ip-perche3__sources a:hover{ color: var(--ip3-primary-dark); }
+
+:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+  border-radius: 12px;
+}
+
+/* Desktop: rientro lieve elenco + evita a capo titolo box finale */
+@media (min-width: 980px){
+  .ip-perche3__bullets{ padding-left: 10px; }
+  .ip-perche3__solutionTitle{ white-space: nowrap; }
+}
+
+/* Mobile: titolo come perche11 (wrap naturale) + fonti possono andare a capo */
+@media (max-width: 520px){
+  .ip-perche3__solutionTitle{
+    white-space: normal;
+    letter-spacing: 0.06em;
+  }
+  .ip-perche3__sources{
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .ip-perche3__sources a{ white-space: normal; }
+}
+
+@media (max-width: 480px){
+  .ip-perche3__card{ padding: 16px; }
+  .ip-perche3__step{ padding: 12px 12px 14px; }
+  .ip-perche3__bullets li{
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  color: var(--ip3-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: left;
+  hyphens: none;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+  .ip-perche3__solutionBody > .ip-perche3__solutionText,
+  .ip-perche3__solutionText--strong{ font-size: 15px; }
+}
+
+/* perche14: evita spezzature con trattini */
+.ip-perche3, .ip-perche3 *{
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
