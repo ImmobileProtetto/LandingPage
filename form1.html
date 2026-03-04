@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Registrazione gratuita immobile - Immobile Protetto" />
+  <title>Form - Immobile Protetto</title>
+  <link rel="stylesheet" href="form1.css" />
+</head>
+
+<body class="ip-form-standalone">
+  <!--
+    USO NELLA LANDING:
+    - Incolla SOLO la <section id="form" ...> dentro la landing (es. nella sezione #contatto/#registra).
+    - Collega anche form1.css (o copia le regole nel CSS principale).
+    - Imposta action="" con il tuo endpoint (Formspree / server / Zapier), lascia method="post".
+    - Se hai già un id="form" in pagina, rinomina id="form" in id="form-immobile-protetto".
+  -->
+
+  <section id="form" class="ip-form" aria-label="Registrazione gratuita immobile">
+    <div class="ip-form__container">
+
+      <header class="ip-form__head">
+        <h2 class="ip-form__title">Registrazione gratuita</h2>
+
+        <p class="ip-form__lead">
+          Richiesta <strong>non vincolante</strong>. Ti ricontattiamo entro <strong>24/48h</strong> con una prima valutazione
+          e i prossimi passi (sopralluogo e proposta operativa).
+        </p>
+
+        <div class="ip-form__trust" aria-label="Garanzie">
+          <span class="ip-form__pill">✅ Nessun costo</span>
+          <span class="ip-form__pill">✅ Nessun vincolo</span>
+          <span class="ip-form__pill">✅ Risposta 24/48h</span>
+        </div>
+
+        <ul class="ip-form__highlights" aria-label="Vantaggi principali">
+          <li>Per te: gestione ordinata e trasparente, immobile più protetto e curato</li>
+          <li>Per la comunità: alloggi accessibili per lavoratori essenziali</li>
+        </ul>
+      </header>
+
+      <form class="ip-form__card ip-form__form" method="post" action="">
+        <!-- Honeypot anti-spam (lasciare vuoto) -->
+        <div class="ip-form__honeypot" aria-hidden="true">
+          <label>Se sei umano lascia vuoto<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="ip-form__grid">
+
+          <!-- CONTATTI -->
+          <div class="ip-form__field">
+            <label for="nome">Nome e Cognome <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="ip-form__field">
+            <label for="email">Email <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+          </div>
+
+          <div class="ip-form__field">
+            <label for="telefono">Telefono / WhatsApp (consigliato)</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39 ..." aria-describedby="hint-telefono" />
+            <p class="ip-form__hint" id="hint-telefono">Utile per fissare sopralluogo e chiarire dubbi rapidamente.</p>
+          </div>
+
+          <div class="ip-form__field">
+            <label for="citta">Città e provincia dell’immobile <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <input id="citta" name="citta" type="text" autocomplete="address-level2" required />
+          </div>
+
+          <!-- INFO IMMOBILE (minime, per ridurre attrito) -->
+          <div class="ip-form__field">
+            <label for="tipologia">Tipologia immobile <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <select id="tipologia" name="tipologia" required>
+              <option value="" selected>Seleziona…</option>
+              <option>Stanza in appartamento</option>
+              <option>Monolocale</option>
+              <option>Bilocale</option>
+              <option>Trilocale</option>
+              <option>Quadrilocale o più</option>
+              <option>Altro</option>
+            </select>
+          </div>
+
+          <div class="ip-form__field">
+            <label for="stato">Stato attuale <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <select id="stato" name="stato" required>
+              <option value="" selected>Seleziona…</option>
+              <option>Vuoto / non abitato</option>
+              <option>Libero a breve</option>
+              <option>In ristrutturazione</option>
+              <option>Altro</option>
+            </select>
+          </div>
+
+          <div class="ip-form__field">
+            <label for="arredato">Arredato?</label>
+            <select id="arredato" name="arredato">
+              <option value="" selected>Seleziona…</option>
+              <option>Sì</option>
+              <option>No</option>
+              <option>Parzialmente</option>
+            </select>
+          </div>
+
+          <div class="ip-form__field">
+            <label for="disponibile">Disponibile da</label>
+            <input id="disponibile" name="disponibile_da" type="date" />
+          </div>
+
+          <div class="ip-form__field">
+            <label for="mq">Metri quadri (circa)</label>
+            <input id="mq" name="mq" type="number" min="10" step="1" inputmode="numeric" placeholder="es. 65" />
+          </div>
+
+          <!-- PUNTO CHIAVE PER QUALIFICAZIONE -->
+          <div class="ip-form__field">
+            <label for="comodato">Disponibile a valutare comodato con autorizzazione alla sublocazione? <span class="ip-form__req" aria-hidden="true">*</span></label>
+            <select id="comodato" name="comodato_sublocazione" required aria-describedby="hint-comodato">
+              <option value="" selected>Seleziona…</option>
+              <option>Sì</option>
+              <option>No</option>
+              <option>Vorrei capirlo meglio (spiegazione gratuita)</option>
+            </select>
+            <p class="ip-form__hint" id="hint-comodato">
+              È il modello che usiamo per tutelare proprietario e inquilino con regole chiare.
+            </p>
+          </div>
+
+          <!-- PREFERENZE (OPZIONALI) -->
+          <fieldset class="ip-form__fieldset">
+            <legend>Preferenze (opzionale)</legend>
+
+            <div class="ip-form__field ip-form__field--checkgroup">
+              <span class="ip-form__label">Categorie di lavoratori</span>
+              <label class="ip-form__check"><input type="checkbox" name="categorie[]" value="Forze dell’Ordine"> Forze dell’Ordine</label>
+              <label class="ip-form__check"><input type="checkbox" name="categorie[]" value="Insegnanti"> Insegnanti</label>
+              <label class="ip-form__check"><input type="checkbox" name="categorie[]" value="Sanità"> Personale sanitario</label>
+              <label class="ip-form__check"><input type="checkbox" name="categorie[]" value="Indifferente"> Indifferente</label>
+            </div>
+
+            <div class="ip-form__field">
+              <label for="occupanti">Numero massimo di occupanti</label>
+              <select id="occupanti" name="occupanti_max">
+                <option value="" selected>Seleziona…</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4+</option>
+              </select>
+            </div>
+
+            <div class="ip-form__field">
+              <label for="durata">Durata preferita</label>
+              <select id="durata" name="durata_preferita">
+                <option value="" selected>Seleziona…</option>
+                <option>3-6 mesi</option>
+                <option>6-12 mesi</option>
+                <option>12+ mesi</option>
+                <option>Da valutare</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div class="ip-form__field ip-form__field--full">
+            <label for="note">Note (opzionale)</label>
+            <textarea id="note" name="note" rows="4" placeholder="Es. zona, ascensore, posto auto, vincoli, preferenze specifiche…"></textarea>
+          </div>
+
+          <!-- CONSENSI -->
+          <div class="ip-form__field ip-form__field--full">
+            <label class="ip-form__check ip-form__check--legal">
+              <input type="checkbox" name="dichiaro" required />
+              <span>Dichiaro di essere proprietario/a (o delegato/a) e di voler ricevere informazioni sul servizio.</span>
+            </label>
+
+            <label class="ip-form__check ip-form__check--legal">
+              <input type="checkbox" name="privacy" required />
+              <span>Acconsento al trattamento dei dati per essere ricontattato/a (informativa privacy).</span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="ip-form__footer">
+          <button class="ip-form__submit" type="submit">Invia richiesta</button>
+          <p class="ip-form__fineprint">
+            Nessun costo di registrazione. Nessun vincolo fino a proposta condivisa e accettata.
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+</body>
+</html>
