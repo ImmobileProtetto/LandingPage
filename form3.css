@@ -1,0 +1,402 @@
+/* form3.css - form evoluto con palette coordinata a perche22 */
+.ip-form3{
+  --ipf3-bg: #f6f8fb;
+  --ipf3-card: #ffffff;
+  --ipf3-text: #0b1f3a;
+  --ipf3-muted: #4b5f78;
+  --ipf3-line: rgba(11, 31, 58, 0.12);
+  --ipf3-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+  --ipf3-shadow-strong: 0 18px 44px rgba(11,31,58,0.10);
+  --ipf3-primary: #0f766e;
+  --ipf3-primary-dark: #064e3b;
+  --ipf3-metric-bg: rgba(15,118,110,0.10);
+  --ipf3-metric-br: rgba(15,118,110,0.22);
+  --ipf3-soft: rgba(15,118,110,0.06);
+  --ipf3-soft-2: rgba(15,118,110,0.10);
+  --ipf3-soft-3: rgba(11,31,58,0.03);
+  --ipf3-r: 18px;
+  --ipf3-max: 1120px;
+}
+
+body.ip-form3-standalone{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--ipf3-bg);
+  color: var(--ipf3-text);
+}
+
+.ip-form3,
+.ip-form3 *{ box-sizing: border-box; }
+
+.ip-form3{
+  width: min(var(--ipf3-max), 100%);
+  margin: 0 auto;
+  padding: clamp(20px, 4.5vw, 44px) 16px;
+}
+
+.ip-form3__container{
+  display: grid;
+  gap: 14px;
+}
+
+.ip-form3__head{
+  text-align: center;
+  display: grid;
+  gap: 10px;
+}
+
+.ip-form3__title{
+  margin: 0;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--ipf3-text);
+}
+
+.ip-form3__lead{
+  margin: 0 auto;
+  max-width: 100%;
+  color: var(--ipf3-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.ip-form3__trust{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ip-form3__pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--ipf3-metric-bg);
+  border: 1px solid var(--ipf3-metric-br);
+  color: rgba(11,31,58,0.92);
+  font-weight: 750;
+  font-size: 12px;
+}
+
+.ip-form3__highlights{
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  max-width: 78ch;
+  display: grid;
+  gap: 6px;
+  color: rgba(75,95,120,0.95);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.ip-form3__highlights li{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.ip-form3__highlights li::before{
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--ipf3-primary), var(--ipf3-primary-dark));
+  box-shadow: 0 8px 18px rgba(6,78,59,0.14);
+  margin-top: 2px;
+  flex: 0 0 18px;
+}
+
+.ip-form3__card{
+  background:
+    radial-gradient(1200px 260px at 50% 0%, rgba(15,118,110,0.12), rgba(15,118,110,0.00) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,248,251,0.98));
+  border: 1px solid var(--ipf3-line);
+  border-radius: var(--ipf3-r);
+  box-shadow: var(--ipf3-shadow);
+  padding: 18px;
+}
+
+.ip-form3__honeypot{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ip-form3__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 860px){
+  .ip-form3__grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ip-form3__field--full,
+  .ip-form3__section,
+  .ip-form3__fieldset{
+    grid-column: 1 / -1;
+  }
+}
+
+.ip-form3__section{
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,118,110,0.18);
+  background:
+    radial-gradient(800px 140px at 50% 0%, rgba(15,118,110,0.12), rgba(15,118,110,0.00) 68%),
+    rgba(15,118,110,0.045);
+}
+
+.ip-form3__sectionTitle{
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(11,31,58,0.88);
+}
+
+.ip-form3__sectionGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 860px){
+  .ip-form3__sectionGrid--geo{
+    grid-template-columns: 1.35fr .65fr;
+  }
+}
+
+.ip-form3__field label,
+.ip-form3__label{
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(11,31,58,0.92);
+  margin-bottom: 6px;
+}
+
+.ip-form3__req{
+  color: rgba(185, 28, 28, 0.9);
+  font-weight: 900;
+}
+
+.ip-form3__hint{
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: rgba(75,95,120,0.95);
+  line-height: 1.5;
+}
+
+.ip-form3__field input,
+.ip-form3__field select,
+.ip-form3__field textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(11,31,58,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(15,118,110,0.035));
+  color: var(--ipf3-text);
+  font: inherit;
+  font-weight: 500;
+  transition: border-color .16s ease, box-shadow .16s ease, background .16s ease, transform .16s ease;
+}
+
+.ip-form3__field input:hover,
+.ip-form3__field select:hover,
+.ip-form3__field textarea:hover{
+  border-color: rgba(15,118,110,0.26);
+  background: linear-gradient(180deg, #fff, rgba(15,118,110,0.055));
+}
+
+.ip-form3__field textarea{
+  resize: vertical;
+  min-height: 110px;
+}
+
+.ip-form3__fieldset{
+  border: 1px solid rgba(15,118,110,0.22);
+  border-radius: 16px;
+  padding: 14px;
+  background:
+    radial-gradient(900px 160px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 65%),
+    rgba(15,118,110,0.06);
+}
+
+.ip-form3__fieldset legend{
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(11,31,58,0.88);
+}
+
+.ip-form3__rankGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 860px){
+  .ip-form3__rankGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ip-form3__rankCard{
+  border: 1px solid rgba(15,118,110,0.18);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 8px 20px rgba(11,31,58,0.04);
+}
+
+.ip-form3__rankCard:nth-child(1){ background: linear-gradient(180deg, rgba(15,118,110,0.10), rgba(255,255,255,0.96)); }
+.ip-form3__rankCard:nth-child(2){ background: linear-gradient(180deg, rgba(15,118,110,0.08), rgba(255,255,255,0.96)); }
+.ip-form3__rankCard:nth-child(3){ background: linear-gradient(180deg, rgba(15,118,110,0.06), rgba(255,255,255,0.96)); }
+
+.ip-form3__rankBadge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--ipf3-primary), var(--ipf3-primary-dark));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 8px 18px rgba(6,78,59,0.18);
+}
+
+.ip-form3__rankTitle{
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(11,31,58,0.92);
+}
+
+.ip-form3__legalBox{
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,118,110,0.22);
+  background:
+    radial-gradient(850px 160px at 50% 0%, rgba(15,118,110,0.16), rgba(15,118,110,0.00) 68%),
+    rgba(15,118,110,0.06);
+}
+
+.ip-form3__legalTitle{
+  margin: 0;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(11,31,58,0.88);
+}
+
+.ip-form3__legalCheck{
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.84);
+  border: 1px solid rgba(11,31,58,0.08);
+  color: rgba(75,95,120,0.98);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ip-form3__legalCheck input{
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--ipf3-primary);
+}
+
+.ip-form3__footer{
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.ip-form3__submit{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,118,110,0.35);
+  background: linear-gradient(135deg, var(--ipf3-primary), var(--ipf3-primary-dark));
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--ipf3-shadow-strong);
+  transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;
+}
+
+.ip-form3__submit:hover{
+  transform: translateY(-1px);
+  filter: brightness(0.985);
+}
+
+.ip-form3__submit:active{
+  transform: translateY(0);
+}
+
+.ip-form3__fineprint{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(75,95,120,0.95);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.ip-form3 :focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(15,118,110,0.18);
+}
+
+@media (min-width: 980px){
+  .ip-form3__lead{
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px){
+  .ip-form3__lead{
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px){
+  .ip-form3__card,
+  .ip-form3__fieldset,
+  .ip-form3__section,
+  .ip-form3__legalBox{
+    padding: 14px;
+  }
+}
+
+.ip-form3__field--prefBottom{ margin-top: 12px; }
