@@ -1,0 +1,464 @@
+<!--
+  AFFIDA CASA – Versione 11
+
+  Questa è la landing page principale del progetto pilota AFFIDA CASA.
+  Raccoglie le informazioni sui proprietari di immobili per consentire
+  una prima valutazione della compatibilità con i dipendenti pubblici
+  interessati. Il modulo invia i dati a Formspree (endpoint
+  configurato) e, in parallelo, può inviare una copia su un Google
+  Sheet tramite un'App Script. Al termine dell'invio con successo
+  l'utente viene reindirizzato alla pagina di ringraziamento.
+-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFFIDA CASA – progetto pilota</title>
+  <link rel="stylesheet" href="affidacasa11.css">
+  <meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+  <header>
+    <div class="logo">AFFIDA CASA</div>
+  </header>
+  <main>
+    <section>
+      <h1>Trova il match giusto per il tuo immobile</h1>
+      <p>Se sei proprietario di un immobile non utilizzato e vuoi
+        valutare la possibilità di affittarlo a dipendenti pubblici
+        selezionati (forze dell'ordine, insegnanti, personale
+        sanitario), compila il modulo qui sotto. Ti ricontatteremo al
+        più presto per una valutazione preliminare.</p>
+    </section>
+    <form id="affidaForm"
+          data-formspree-url="https://formspree.io/f/xjggypap"
+          data-sheets-url="https://script.google.com/macros/s/AKfycbzzZV78W4p7itg8qkaMHxjSJRp4oMBYuyPW7l-I7mfM640Tk9WEHVvYcymNQmMniBvbUQ/exec"
+          onsubmit="return false;">
+      <div class="form-group">
+        <label for="nome">Nome e Cognome</label>
+        <input type="text" id="nome" name="nome" required placeholder="Inserisci il tuo nome completo">
+      </div>
+      <div class="form-group">
+        <label for="email">Indirizzo email</label>
+        <input type="email" id="email" name="email" required placeholder="esempio@email.com">
+      </div>
+      <div class="form-group">
+        <label for="telefono">Numero di telefono / WhatsApp</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="ex. 3930123456">
+      </div>
+      <div class="form-group">
+        <label for="citta_immobile">Comune dell’immobile</label>
+        <input type="text" id="citta_immobile" name="citta_immobile" required>
+      </div>
+      <div class="form-group">
+        <label for="provincia_immobile">Provincia dell’immobile</label>
+        <input type="text" id="provincia_immobile" name="provincia_immobile" required>
+      </div>
+      <div class="form-group">
+        <label for="mq">Metri quadrati (indicativi)</label>
+        <input type="number" id="mq" name="mq" min="0" step="1" required>
+      </div>
+      <div class="form-group">
+        <label for="tipologia">Tipologia dell’immobile</label>
+        <select id="tipologia" name="tipologia" required>
+          <option value="">Seleziona...</option>
+          <option value="Monolocale">Monolocale</option>
+          <option value="Bilocale">Bilocale</option>
+          <option value="Trilocale">Trilocale</option>
+          <option value="Quadrilocale o più">Quadrilocale o più</option>
+          <option value="Altro">Altro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stato">Stato attuale dell’immobile</label>
+        <select id="stato" name="stato" required>
+          <option value="">Seleziona...</option>
+          <option value="Vuoto / non abitato">Vuoto / non abitato</option>
+          <option value="Attualmente abitato ma disponibile a breve">Attualmente abitato ma disponibile a breve</option>
+          <option value="Altro stato">Altro stato</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="arredato">L’immobile è arredato?</label>
+        <select id="arredato" name="arredato" required>
+          <option value="">Seleziona...</option>
+          <option value="Sì">Sì</option>
+          <option value="No">No</option>
+          <option value="Parzialmente">Parzialmente</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="disponibile_da">Disponibile da</label>
+        <input type="date" id="disponibile_da" name="disponibile_da" required>
+      </div>
+      <div class="form-group">
+        <label for="preferenze_categorie">Preferenza categorie</label>
+        <select id="preferenze_categorie" name="preferenze_categorie" required>
+          <option value="">Seleziona...</option>
+          <option value="Forze dell’Ordine">Forze dell’Ordine</option>
+          <option value="Insegnanti">Insegnanti</option>
+          <option value="Personale Sanitario">Personale Sanitario</option>
+          <option value="Indifferente">Indifferente</option>
+        </select>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" id="privacy_letta" name="privacy_letta" required>
+        <label for="privacy_letta">Dichiaro di aver letto l’<a href="#" id="openPrivacy">Informativa Privacy</a> di AFFIDA CASA.</label>
+      </div>
+      <button type="submit" id="submitButton">Invia richiesta</button>
+      <p id="formFeedback"></p>
+    </form>
+  </main>
+  <!-- Modale per la privacy -->
+  <div id="privacyModal" class="modal">
+    <div class="modal-content">
+      <button id="closePrivacy">Chiudi</button>
+      <h2>Informativa Privacy – AFFIDA CASA</h2>
+      <div class="privacy-text">
+        <p><strong>Ultimo aggiornamento:</strong> 10/06/2026</p>
+        <p>La presente informativa descrive come vengono trattati i dati personali
+        raccolti tramite la landing page di <strong>AFFIDA CASA</strong>, progetto
+        pilota nato per favorire l’incontro tra proprietari di immobili non
+        utilizzati e dipendenti pubblici alla ricerca di soluzioni
+        abitative accessibili, affidabili e coerenti con le esigenze del
+        territorio.</p>
+        <p>La presente informativa è resa ai sensi degli artt. 13 e, ove
+        applicabile, 14 del Regolamento (UE) 2016/679 (“GDPR”) e descrive
+        le modalità di raccolta, utilizzo, conservazione e tutela dei dati
+        personali degli interessati.</p>
+        <p><strong>AFFIDA CASA</strong> si impegna a trattare i dati personali
+        in modo riservato, corretto, trasparente e limitato alle sole
+        finalità connesse al progetto, nel rispetto dei principi di
+        liceità, correttezza, trasparenza, minimizzazione, limitazione
+        della conservazione, integrità e riservatezza previsti
+        dall’art. 5 GDPR.</p>
+        <hr>
+        <h3>1. Titolare del trattamento</h3>
+        <p>Il Titolare del trattamento è <strong>Andrea De Leonibus</strong>, in qualità
+        di promotore e referente del progetto pilota “AFFIDA CASA”, attualmente
+        non costituito in forma societaria o associativa. Il Titolare
+        determina le finalità e i mezzi del trattamento ai sensi
+        dell’art. 4, n. 7 GDPR.</p>
+        <p><strong>Email per richieste privacy:</strong> info@affidacasa.it<br>
+        <strong>Recapito operativo per comunicazioni:</strong> AFFIDA CASA c/o Via
+        Pietro Nenni 58/A, 66020 San Giovanni Teatino (CH).</p>
+        <p>Poiché AFFIDA CASA è attualmente un progetto pilota e non ancora
+        organizzato in forma societaria o associativa, il trattamento dei
+        dati personali è effettuato sotto la responsabilità del Titolare
+        sopra indicato, esclusivamente per la gestione delle richieste
+        ricevute, la valutazione preliminare degli immobili, la verifica
+        di possibili compatibilità abitative e le attività
+        organizzative strettamente connesse al progetto.</p>
+        <p>Qualora il progetto venga successivamente conferito a una
+        società, associazione o altro soggetto giuridico autonomo, gli
+        interessati saranno informati dell’eventuale variazione del
+        Titolare mediante aggiornamento della presente informativa o
+        comunicazione dedicata.</p>
+        <hr>
+        <h3>2. Responsabile della Protezione dei Dati</h3>
+        <p>Non è stato nominato un Responsabile della Protezione dei Dati
+        (RPD/DPO), non ricorrendone allo stato i presupposti
+        obbligatori. Per ogni richiesta relativa al trattamento dei dati
+        personali è possibile contattare il Titolare all’indirizzo
+        info@affidacasa.it.</p>
+        <hr>
+        <h3>3. Tipologie di dati raccolti</h3>
+        <p>Attraverso la landing page vengono raccolti esclusivamente i dati
+        personali forniti volontariamente dall’utente tramite il form di
+        registrazione dell’immobile.</p>
+        <p><strong>Per i proprietari di immobili</strong> possono essere raccolti:
+        nome e cognome, indirizzo email, numero di telefono o contatto
+        WhatsApp, Comune e Provincia dell’immobile, metri quadrati
+        indicativi dell’immobile, tipologia dell’immobile, stato
+        attuale, indicazione sulla presenza o meno di arredamento, data
+        indicativa di disponibilità e ordine di preferenza relativo
+        alle categorie di potenziali utilizzatori.</p>
+        <p>L’indirizzo completo dell’immobile non viene richiesto tramite
+        il form della landing page. Potrà essere eventualmente
+        richiesto solo in una fase successiva, se necessario per
+        sopralluoghi, verifiche operative o attività strettamente
+        connesse alla valutazione della richiesta.</p>
+        <p><strong>Per i potenziali utilizzatori/dipendenti pubblici</strong>, qualora in
+        futuro venga attivata una sezione dedicata, potranno essere
+        raccolti dati quali nome e cognome, recapiti di contatto,
+        categoria professionale dichiarata, area geografica di
+        interesse ed esigenze abitative generali.</p>
+        <p><strong>AFFIDA CASA</strong> non richiede categorie particolari di dati ai
+        sensi dell’art. 9 GDPR (ad esempio dati sanitari, opinioni
+        politiche, convinzioni religiose o filosofiche, appartenenza
+        sindacale, orientamento sessuale) né dati relativi a condanne
+        penali o reati ai sensi dell’art. 10 GDPR.</p>
+        <p>Qualora, in una fase successiva, fossero necessari documenti
+        o informazioni ulteriori per verifiche più approfondite,
+        essi saranno richiesti separatamente e trattati solo se
+        strettamente necessari, con modalità coerenti con la
+        normativa applicabile.</p>
+        <hr>
+        <h3>4. Finalità del trattamento e basi giuridiche</h3>
+        <p>I dati personali raccolti sono trattati esclusivamente per finalità
+        connesse al progetto AFFIDA CASA. Le principali finalità sono:
+        ricontatto dell’utente per rispondere alla richiesta e gestire
+        le comunicazioni (art. 6, par. 1, lett. b GDPR);
+        valutazione preliminare dell’immobile e verifica della
+        compatibilità con gli obiettivi del progetto (art. 6, par. 1,
+        lett. b e lett. f GDPR);
+        valutazione di possibili compatibilità abitative tra
+        immobili disponibili e profili di potenziali utilizzatori
+        (art. 6, par. 1, lett. b e, ove necessario, lett. f GDPR);
+        gestione organizzativa del progetto pilota, inclusa
+        l’organizzazione di sopralluoghi, colloqui e verifiche
+        preliminari (art. 6, par. 1, lett. f GDPR);
+        tutela del progetto, dei proprietari e dei potenziali
+        utilizzatori, prevenendo utilizzi impropri del servizio,
+        frodi, abusi o accessi non autorizzati (art. 6, par. 1,
+        lett. f GDPR);
+        adempimenti normativi o richieste delle autorità
+        competenti (art. 6, par. 1, lett. c GDPR).</p>
+        <p><strong>AFFIDA CASA</strong> non utilizza i dati per finalità di marketing
+        generico, newsletter, profilazione commerciale automatizzata,
+        vendita a terzi o comunicazioni promozionali non richieste.
+        Qualora in futuro il Titolare intenda trattare i dati per
+        finalità ulteriori, l’interessato riceverà preventivamente le
+        informazioni richieste dagli artt. 13 e 14 GDPR e, ove
+        necessario, sarà richiesto uno specifico consenso ai sensi
+        dell’art. 6, par. 1, lett. a GDPR.</p>
+        <hr>
+        <h3>5. Natura del conferimento dei dati</h3>
+        <p>Il conferimento dei dati è volontario; tuttavia il mancato
+        conferimento dei dati richiesti nel form potrebbe impedire
+        ad AFFIDA CASA di ricontattare l’utente, valutare l’immobile,
+        organizzare eventuali attività preliminari o verificare la
+        compatibilità con il progetto.</p>
+        <hr>
+        <h3>6. Modalità di trattamento e misure di sicurezza</h3>
+        <p>I dati sono trattati con strumenti digitali e, se necessario, con
+        modalità manuali. AFFIDA CASA adotta misure tecniche e
+        organizzative adeguate per proteggere i dati da accessi non
+        autorizzati, perdita, divulgazione, modifica o uso improprio,
+        secondo quanto previsto dagli artt. 24, 25 e 32 GDPR. L’accesso
+        agli strumenti utilizzati per la gestione delle richieste è
+        protetto da credenziali riservate e, ove disponibile,
+        autenticazione a due fattori. I dati non sono accessibili
+        pubblicamente e sono consultabili solo dai soggetti autorizzati
+        alla gestione del progetto.</p>
+        <hr>
+        <h3>7. Cookie, strumenti di tracciamento e tecnologie simili</h3>
+        <p>La landing page di AFFIDA CASA utilizza esclusivamente cookie e
+        strumenti tecnici necessari al corretto funzionamento del sito,
+        alla sicurezza della navigazione e alla gestione delle
+        richieste inviate dall’utente. Alla data di aggiornamento
+        della presente informativa non vengono utilizzati strumenti di
+        profilazione commerciale, pixel pubblicitari o tracciamenti
+        finalizzati a pubblicità comportamentale. Eventuali strumenti
+        analitici o di terze parti saranno attivati solo ove ricorrano
+        i presupposti di legge e, se necessario, previo consenso
+        dell’utente tramite apposito banner o pannello di gestione.
+        L’utente può gestire o modificare le proprie preferenze
+        tramite le impostazioni del browser.</p>
+        <hr>
+        <h3>8. Comunicazione dei dati a terzi</h3>
+        <p>I dati personali non saranno venduti, ceduti o diffusi
+        pubblicamente. I dati potranno essere comunicati, solo se
+        necessario e nei limiti delle finalità indicate, a:
+        collaboratori o referenti autorizzati coinvolti nel progetto
+        AFFIDA CASA; fornitori tecnici utilizzati per la gestione della
+        landing page, dei moduli di contatto, dell’hosting, della posta
+        elettronica, della sicurezza o dell’archiviazione (ad esempio
+        Formspree per la ricezione del modulo e Google Sheets/App
+        Script per la memorizzazione interna delle richieste);
+        fornitori o piattaforme di comunicazione utilizzate per il
+        ricontatto, inclusi servizi email, telefono o WhatsApp, nei
+        limiti necessari alla gestione della richiesta; eventuali
+        consulenti legali, fiscali, tecnici o assicurativi; autorità
+        competenti, solo nei casi previsti dalla legge. Tali soggetti
+        operano, a seconda dei casi, come responsabili del trattamento
+        ai sensi dell’art. 28 GDPR o come autonomi titolari.</p>
+        <p>Nel caso di possibile compatibilità tra proprietario e
+        potenziale utilizzatore, i dati identificativi completi delle
+        parti non saranno condivisi in modo indiscriminato. La
+        condivisione avverrà progressivamente, solo per quanto
+        necessario, e preferibilmente dopo un primo contatto o consenso
+        specifico delle parti coinvolte.</p>
+        <hr>
+        <h3>9. Utilizzo di WhatsApp e canali esterni</h3>
+        <p>La landing page può contenere un collegamento a WhatsApp per
+        consentire all’utente di contattare AFFIDA CASA in modo
+        diretto. L’utilizzo di WhatsApp è volontario e regolato dalle
+        condizioni e dall’informativa privacy del relativo servizio. AFFIDA
+        CASA utilizzerà i dati ricevuti tramite WhatsApp esclusivamente
+        per rispondere alla richiesta dell’utente e per le finalità
+        connesse al progetto indicate nella presente informativa.</p>
+        <hr>
+        <h3>10. Trasferimento dei dati fuori dallo Spazio Economico Europeo</h3>
+        <p>I dati sono trattati principalmente attraverso strumenti digitali.
+        Alcuni fornitori tecnici utilizzati per moduli di contatto,
+        hosting, posta elettronica, sicurezza, comunicazione o
+        archiviazione – inclusi Formspree e Google Sheets/Apps Script –
+        potrebbero avere sede o infrastrutture anche fuori dallo
+        Spazio Economico Europeo, in particolare negli Stati Uniti. In
+        tali casi, il trasferimento avverrà solo in presenza di
+        decisioni di adeguatezza della Commissione Europea, clausole
+        contrattuali standard o altre garanzie previste dagli
+        artt. 44 e seguenti del GDPR. Il Titolare si impegna a
+        utilizzare fornitori che garantiscano un livello di
+        protezione adeguato ai sensi della normativa vigente.</p>
+        <hr>
+        <h3>11. Periodo di conservazione</h3>
+        <p>I dati saranno conservati per il tempo strettamente necessario alle
+        finalità per cui sono stati raccolti, in conformità con il
+        principio di limitazione della conservazione (art. 5, par. 1,
+        lett. e GDPR). In particolare: i dati raccolti tramite il form
+        di contatto e utilizzati esclusivamente per fornire un primo
+        riscontro saranno conservati per un massimo di 12 mesi
+        dall’ultimo contatto utile; i dati relativi a immobili o
+        profili che, a seguito della valutazione preliminare, risultino
+        manifestamente non compatibili con le finalità del progetto
+        saranno cancellati o anonimizzati entro 90 giorni dalla
+        conclusione della valutazione; i dati relativi a immobili o
+        profili ritenuti potenzialmente compatibili e inseriti nelle
+        attività di ricerca di possibili abbinamenti saranno
+        conservati per un massimo di 24 mesi dall’ultimo aggiornamento
+        o contatto significativo con l’interessato; in caso di avvio
+        di sopralluoghi, verifiche, trattative o attività operative
+        finalizzate a un possibile accordo tra le parti, i dati saranno
+        conservati per tutta la durata della relativa fase progettuale
+        e, successivamente, per un periodo massimo di 24 mesi dalla
+        sua conclusione, salvo esigenze di tutela dei diritti del
+        Titolare o delle parti coinvolte.</p>
+        <hr>
+        <h3>12. Diritti dell’interessato</h3>
+        <p>Ai sensi degli artt. 15-22 GDPR, l’utente può esercitare in
+        qualsiasi momento i seguenti diritti: ottenere la conferma
+        dell’esistenza o meno di dati personali che lo riguardano e
+        accedervi; chiedere la rettifica dei dati inesatti o
+        l’integrazione di quelli incompleti; chiedere la cancellazione
+        dei dati nei casi previsti dalla normativa; chiedere la
+        limitazione del trattamento nei casi previsti dalla normativa;
+        opporsi al trattamento basato sul legittimo interesse del
+        Titolare; ricevere i dati in formato strutturato e
+        richiederne la portabilità, ove applicabile; revocare il
+        consenso eventualmente prestato, senza pregiudicare la
+        liceità del trattamento precedente alla revoca; proporre
+        reclamo all’Autorità Garante per la protezione dei dati
+        personali.</p>
+        <p>Per esercitare i propri diritti è possibile scrivere a:
+        info@affidacasa.it. La richiesta sarà gestita entro i termini
+        previsti dagli artt. 12 e seguenti del GDPR.</p>
+        <hr>
+        <h3>13. Assenza di processi decisionali automatizzati</h3>
+        <p>AFFIDA CASA non utilizza processi decisionali completamente
+        automatizzati, algoritmi di scoring o sistemi di profilazione
+        automatizzata per accettare o rifiutare proprietari,
+        immobili o potenziali utilizzatori. Le valutazioni vengono
+        effettuate manualmente, sulla base delle informazioni fornite
+        e degli obiettivi del progetto.</p>
+        <hr>
+        <h3>14. Riservatezza delle informazioni</h3>
+        <p>AFFIDA CASA considera la riservatezza un elemento centrale del
+        progetto. Le informazioni fornite dai proprietari e dai
+        potenziali utilizzatori saranno trattate con discrezione e
+        utilizzate solo per finalità coerenti con il progetto:
+        valutazione, ricontatto, compatibilità abitativa,
+        organizzazione di eventuali sopralluoghi o fasi successive. I
+        dati non saranno pubblicati, venduti, diffusi o comunicati a
+        soggetti estranei al progetto senza una ragione legittima o
+        senza il consenso dell’interessato, ove necessario.</p>
+        <hr>
+        <h3>15. Registro interno e gestione documentale</h3>
+        <p>Il Titolare può mantenere una documentazione interna
+        semplificata relativa alle attività di trattamento svolte
+        nell’ambito del progetto AFFIDA CASA, al fine di dimostrare
+        l’adozione di misure organizzative coerenti con il principio
+        di responsabilizzazione previsto dal GDPR. Tale documentazione
+        potrà indicare, tra le altre cose: le finalità del
+        trattamento, le categorie di dati trattati, le basi giuridiche,
+        i soggetti che possono accedere ai dati, i fornitori tecnici
+        utilizzati, i tempi di conservazione, le misure di sicurezza
+        adottate e gli eventuali trasferimenti di dati fuori dallo
+        Spazio Economico Europeo.</p>
+        <hr>
+        <h3>16. Aggiornamenti della presente informativa</h3>
+        <p>La presente informativa potrà essere aggiornata nel tempo, anche
+        in base all’evoluzione del progetto AFFIDA CASA, alla
+        costituzione di un soggetto giuridico strutturato, all’introduzione
+        di nuovi servizi, all’utilizzo di nuovi strumenti tecnici o a
+        modifiche normative. La versione aggiornata sarà pubblicata
+        sulla landing page o resa disponibile agli utenti attraverso i
+        canali di contatto del progetto.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Gestione invio del modulo tramite AJAX verso Formspree e Google Sheets
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('affidaForm');
+      const submitButton = document.getElementById('submitButton');
+      const feedback = document.getElementById('formFeedback');
+      const formspreeUrl = form.dataset.formspreeUrl;
+      const sheetsUrl = form.dataset.sheetsUrl;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        feedback.textContent = 'Invio in corso…';
+        submitButton.disabled = true;
+        const formData = new FormData(form);
+        // Costruisci oggetto per Sheets
+        const payload = {};
+        formData.forEach((value, key) => {
+          payload[key] = value;
+        });
+        // Campi supplementari
+        payload.origine = 'AFFIDA CASA';
+        payload.data_invio_locale = new Date().toISOString();
+        payload.pagina_origine = window.location.pathname;
+
+        // Prima invia a Formspree
+        fetch(formspreeUrl, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        }).then(function (response) {
+          if (response.ok) {
+            // Prova ad inviare anche a Google Sheets se impostato
+            if (sheetsUrl) {
+              fetch(sheetsUrl, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+              }).catch(function (err) {
+                // Non interrompere il flusso se la chiamata verso Sheets fallisce
+                console.warn('Errore nell\'invio al foglio: ', err);
+              });
+            }
+            // Redirigi alla pagina di ringraziamento
+            window.location.href = 'grazie11.html';
+          } else {
+            return response.json().then(function (data) {
+              throw new Error(data.error || 'Errore nell\'invio');
+            });
+          }
+        }).catch(function (error) {
+          feedback.textContent = 'Si è verificato un errore: ' + error.message + '. Per favore riprova.';
+          submitButton.disabled = false;
+        });
+      });
+
+      // Gestione apertura e chiusura modale privacy
+      const openPrivacy = document.getElementById('openPrivacy');
+      const closePrivacy = document.getElementById('closePrivacy');
+      const privacyModal = document.getElementById('privacyModal');
+
+      openPrivacy.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        privacyModal.classList.add('active');
+      });
+      closePrivacy.addEventListener('click', function () {
+        privacyModal.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
